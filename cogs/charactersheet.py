@@ -73,7 +73,8 @@ class Classes(commands.Cog):
         self.bot = bot
         self.session = aiohttp.ClientSession()
 
-    @commands.command(help='Fill in a 5e Character Sheet')
+    @commands.command(help='Fill in a 5e Character Sheet',
+                      aliases=['cs', 'sheet'])
     async def character(self, ctx):
         embed = discord.Embed(
             title='WELCOME!',
