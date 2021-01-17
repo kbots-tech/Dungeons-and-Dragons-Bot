@@ -19,17 +19,21 @@ class help(commands.Cog, name='help'):
         
         embed.add_field(
             name='`>races [args]`',
-            value='Use this command to get info about D&D race, if args is included it will give info about that race otherwise it will list all races.\n_Aliases:_ `>race`, `>races`, `>r`',inline=False)
-        embed.add_field(name='`>class [args] [levels]`',value='Use this command to get info about D&D class, if args is included it will give info about that class otherwise it will list all class.' 'If `levels` is appended to the end it will give info about each level.\n _Aliases:_ `>class`,`>races`, `>c`',
+            value='Use this command to get info about D&D race, if args is included it will give info about that race otherwise it will list all races.\n_Aliases:_ `>race`, `>races`, `>r`\neg: `>races dragonborn`',inline=False)
+        embed.add_field(name='`>class [args] [levels]`',value='Use this command to get info about D&D class, if args is included it will give info about that class otherwise it will list all class.' 'If `levels` is appended to the end it will give info about each level.\n _Aliases:_ `>class`,`>races`, `>c`\neg: `>class bard levels` or `>class rogue`',
                         inline=False)
         embed.add_field(
             name='`>spells [args]`',
-            value='Use this command to get info about D&D spell, if args is included it will give info about that spell otherwise it will list all races.\n \n _Aliases:_ `>spell`, `>spells`, `>s`',
+            value='Use this command to get info about D&D spell, if args is included it will give info about that spell otherwise it will list all races.\n_Aliases:_ `>spell`, `>spells`, `>s`\neg:`>spells fireball`',
             inline=False)
         embed.add_field(
             name='`>equipment [args]`',
-            value='Use this command to get info about D&D equipment, if args is included it will give info about that equipment otherwise it will list all equipment. This includes armor, weapons, and other objects.\n _Aliases:_ `>equipment`,`>e`,`>armor`,`>weapon` ',
+            value='Use this command to get info about D&D equipment, if args is included it will give info about that equipment otherwise it will list all equipment. This includes armor, weapons, and other objects.\n _Aliases:_ `>equipment`,`>e`,`>armor`,`>weapon`\neg: `>equipment abacus`',
             inline=False)
+        embed.add_field(
+            name='`>monster [args]`',
+            value='Use this command to get info about a monster or creature, if args is included it will give info about that creature otherwise it will list all creatures.\n _Aliases:_ `>monster`, `>mo`, `>m`\neg: `>monster aboleth`',
+        )
         embed.add_field(
             name='`>character`',
             value='The creme de la creme of this bots commands, this command will walk you through the steps and generate a prefilled editable character sheet. Currently this is only for level 1 characters but planning is in place for a more advanced version.\n _Aliases:_ `>sheet`, `>cs`',
@@ -38,7 +42,7 @@ class help(commands.Cog, name='help'):
         
         embed.add_field(name='Links',value="[Bot Invite](https://discord.com/oauth2/authorize?client_id=755592938922442782&permissions=10304&scope=bot) , [Support Server](https://discord.com/invite/wV5YdX94h4), [Github Repo](https://github.com/mcurranseijo/dnd-bot)")
         
-        embed.add_field(name="Number of guilds",value=len(self.bot.guilds))
+        embed.add_field(name="Number of guilds", value=len(self.bot.guilds))
 
 
         await ctx.send(embed=embed)
