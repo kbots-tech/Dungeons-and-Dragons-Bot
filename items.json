@@ -1,0 +1,951 @@
+{
+    "Adventuring Gear": {
+        "name": "Adventuring Gear",
+        "items": [
+            {
+                "name": "Abacus",
+                "url": "/api/equipment/abacus"
+            },
+            {
+                "name": "Acid (vial)",
+                "url": "/api/equipment/acid-vial"
+            },
+            {
+                "name": "Alchemist's fire (flask)",
+                "url": "/api/equipment/alchemists-fire-flask"
+            },
+            {
+                "name": "Amulet",
+                "url": "/api/equipment/amulet"
+            },
+            {
+                "name": "Antitoxin (vial)",
+                "url": "/api/equipment/antitoxin-vial"
+            },
+            {
+                "name": "Arrow",
+                "url": "/api/equipment/arrow"
+            },
+            {
+                "name": "Backpack",
+                "url": "/api/equipment/backpack"
+            },
+            {
+                "name": "Ball bearings (bag of 1,000)",
+                "url": "/api/equipment/ball-bearings-bag-of-1000"
+            },
+            {
+                "name": "Barrel",
+                "url": "/api/equipment/barrel"
+            },
+            {
+                "name": "Basket",
+                "url": "/api/equipment/basket"
+            },
+            {
+                "name": "Bedroll",
+                "url": "/api/equipment/bedroll"
+            },
+            {
+                "name": "Bell",
+                "url": "/api/equipment/bell"
+            },
+            {
+                "name": "Blanket",
+                "url": "/api/equipment/blanket"
+            },
+            {
+                "name": "Block and tackle",
+                "url": "/api/equipment/block-and-tackle"
+            },
+            {
+                "name": "Blowgun needle",
+                "url": "/api/equipment/blowgun-needle"
+            },
+            {
+                "name": "Book",
+                "url": "/api/equipment/book"
+            },
+            {
+                "name": "Bottle, glass",
+                "url": "/api/equipment/bottle-glass"
+            },
+            {
+                "name": "Bucket",
+                "url": "/api/equipment/bucket"
+            },
+            {
+                "name": "Burglar's Pack",
+                "url": "/api/equipment/burglars-pack"
+            },
+            {
+                "name": "Caltrops",
+                "url": "/api/equipment/caltrops"
+            },
+            {
+                "name": "Candle",
+                "url": "/api/equipment/candle"
+            },
+            {
+                "name": "Case, crossbow bolt",
+                "url": "/api/equipment/case-crossbow-bolt"
+            },
+            {
+                "name": "Case, map or scroll",
+                "url": "/api/equipment/case-map-or-scroll"
+            },
+            {
+                "name": "Chain (10 feet)",
+                "url": "/api/equipment/chain-10-feet"
+            },
+            {
+                "name": "Chalk (1 piece)",
+                "url": "/api/equipment/chalk-1-piece"
+            },
+            {
+                "name": "Chest",
+                "url": "/api/equipment/chest"
+            },
+            {
+                "name": "Climber's Kit",
+                "url": "/api/equipment/climbers-kit"
+            },
+            {
+                "name": "Clothes, common",
+                "url": "/api/equipment/clothes-common"
+            },
+            {
+                "name": "Clothes, costume",
+                "url": "/api/equipment/clothes-costume"
+            },
+            {
+                "name": "Clothes, fine",
+                "url": "/api/equipment/clothes-fine"
+            },
+            {
+                "name": "Clothes, traveler's",
+                "url": "/api/equipment/clothes-travelers"
+            },
+            {
+                "name": "Component pouch",
+                "url": "/api/equipment/component-pouch"
+            },
+            {
+                "name": "Crossbow bolt",
+                "url": "/api/equipment/crossbow-bolt"
+            },
+            {
+                "name": "Crowbar",
+                "url": "/api/equipment/crowbar"
+            },
+            {
+                "name": "Crystal",
+                "url": "/api/equipment/crystal"
+            },
+            {
+                "name": "Diplomat's Pack",
+                "url": "/api/equipment/diplomats-pack"
+            },
+            {
+                "name": "Disguise Kit",
+                "url": "/api/equipment/disguise-kit"
+            },
+            {
+                "name": "Dungeoneer's Pack",
+                "url": "/api/equipment/dungeoneers-pack"
+            },
+            {
+                "name": "Emblem",
+                "url": "/api/equipment/emblem"
+            },
+            {
+                "name": "Entertainer's Pack",
+                "url": "/api/equipment/entertainers-pack"
+            },
+            {
+                "name": "Explorer's Pack",
+                "url": "/api/equipment/explorers-pack"
+            },
+            {
+                "name": "Fishing tackle",
+                "url": "/api/equipment/fishing-tackle"
+            },
+            {
+                "name": "Flask or tankard",
+                "url": "/api/equipment/flask-or-tankard"
+            },
+            {
+                "name": "Forgery Kit",
+                "url": "/api/equipment/forgery-kit"
+            },
+            {
+                "name": "Grappling hook",
+                "url": "/api/equipment/grappling-hook"
+            },
+            {
+                "name": "Hammer",
+                "url": "/api/equipment/hammer"
+            },
+            {
+                "name": "Hammer, sledge",
+                "url": "/api/equipment/hammer-sledge"
+            },
+            {
+                "name": "Healer's Kit",
+                "url": "/api/equipment/healers-kit"
+            },
+            {
+                "name": "Herbalism Kit",
+                "url": "/api/equipment/herbalism-kit"
+            },
+            {
+                "name": "Holy water (flask)",
+                "url": "/api/equipment/holy-water-flask"
+            },
+            {
+                "name": "Hourglass",
+                "url": "/api/equipment/hourglass"
+            },
+            {
+                "name": "Hunting trap",
+                "url": "/api/equipment/hunting-trap"
+            },
+            {
+                "name": "Ink (1 ounce bottle)",
+                "url": "/api/equipment/ink-1-ounce-bottle"
+            },
+            {
+                "name": "Ink pen",
+                "url": "/api/equipment/ink-pen"
+            },
+            {
+                "name": "Jug or pitcher",
+                "url": "/api/equipment/jug-or-pitcher"
+            },
+            {
+                "name": "Ladder (10-foot)",
+                "url": "/api/equipment/ladder-10-foot"
+            },
+            {
+                "name": "Lamp",
+                "url": "/api/equipment/lamp"
+            },
+            {
+                "name": "Lantern, bullseye",
+                "url": "/api/equipment/lantern-bullseye"
+            },
+            {
+                "name": "Lantern, hooded",
+                "url": "/api/equipment/lantern-hooded"
+            },
+            {
+                "name": "Lock",
+                "url": "/api/equipment/lock"
+            },
+            {
+                "name": "Magnifying glass",
+                "url": "/api/equipment/magnifying-glass"
+            },
+            {
+                "name": "Manacles",
+                "url": "/api/equipment/manacles"
+            },
+            {
+                "name": "Mess Kit",
+                "url": "/api/equipment/mess-kit"
+            },
+            {
+                "name": "Mirror, steel",
+                "url": "/api/equipment/mirror-steel"
+            },
+            {
+                "name": "Oil (flask)",
+                "url": "/api/equipment/oil-flask"
+            },
+            {
+                "name": "Orb",
+                "url": "/api/equipment/orb"
+            },
+            {
+                "name": "Paper (one sheet)",
+                "url": "/api/equipment/paper-one-sheet"
+            },
+            {
+                "name": "Parchment (one sheet)",
+                "url": "/api/equipment/parchment-one-sheet"
+            },
+            {
+                "name": "Perfume (vial)",
+                "url": "/api/equipment/perfume-vial"
+            },
+            {
+                "name": "Pick, miner's",
+                "url": "/api/equipment/pick-miners"
+            },
+            {
+                "name": "Piton",
+                "url": "/api/equipment/piton"
+            },
+            {
+                "name": "Poison, basic (vial)",
+                "url": "/api/equipment/poison-basic-vial"
+            },
+            {
+                "name": "Poisoner's Kit",
+                "url": "/api/equipment/poisoners-kit"
+            },
+            {
+                "name": "Pole (10-foot)",
+                "url": "/api/equipment/pole-10-foot"
+            },
+            {
+                "name": "Pot, iron",
+                "url": "/api/equipment/pot-iron"
+            },
+            {
+                "name": "Potion of healing",
+                "url": "/api/equipment/potion-of-healing"
+            },
+            {
+                "name": "Pouch",
+                "url": "/api/equipment/pouch"
+            },
+            {
+                "name": "Priest's Pack",
+                "url": "/api/equipment/priests-pack"
+            },
+            {
+                "name": "Quiver",
+                "url": "/api/equipment/quiver"
+            },
+            {
+                "name": "Ram, portable",
+                "url": "/api/equipment/ram-portable"
+            },
+            {
+                "name": "Rations (1 day)",
+                "url": "/api/equipment/rations-1-day"
+            },
+            {
+                "name": "Reliquary",
+                "url": "/api/equipment/reliquary"
+            },
+            {
+                "name": "Robes",
+                "url": "/api/equipment/robes"
+            },
+            {
+                "name": "Rod",
+                "url": "/api/equipment/rod"
+            },
+            {
+                "name": "Rope, hempen (50 feet)",
+                "url": "/api/equipment/rope-hempen-50-feet"
+            },
+            {
+                "name": "Rope, silk (50 feet)",
+                "url": "/api/equipment/rope-silk-50-feet"
+            },
+            {
+                "name": "Sack",
+                "url": "/api/equipment/sack"
+            },
+            {
+                "name": "Scale, merchant's",
+                "url": "/api/equipment/scale-merchants"
+            },
+            {
+                "name": "Scholar's Pack",
+                "url": "/api/equipment/scholars-pack"
+            },
+            {
+                "name": "Sealing wax",
+                "url": "/api/equipment/sealing-wax"
+            },
+            {
+                "name": "Shovel",
+                "url": "/api/equipment/shovel"
+            },
+            {
+                "name": "Signal whistle",
+                "url": "/api/equipment/signal-whistle"
+            },
+            {
+                "name": "Signet ring",
+                "url": "/api/equipment/signet-ring"
+            },
+            {
+                "name": "Sling bullet",
+                "url": "/api/equipment/sling-bullet"
+            },
+            {
+                "name": "Soap",
+                "url": "/api/equipment/soap"
+            },
+            {
+                "name": "Spellbook",
+                "url": "/api/equipment/spellbook"
+            },
+            {
+                "name": "Spike, iron",
+                "url": "/api/equipment/spike-iron"
+            },
+            {
+                "name": "Sprig of mistletoe",
+                "url": "/api/equipment/sprig-of-mistletoe"
+            },
+            {
+                "name": "Spyglass",
+                "url": "/api/equipment/spyglass"
+            },
+            {
+                "name": "Staff",
+                "url": "/api/equipment/staff"
+            },
+            {
+                "name": "Tent, two-person",
+                "url": "/api/equipment/tent-two-person"
+            },
+            {
+                "name": "Tinderbox",
+                "url": "/api/equipment/tinderbox"
+            },
+            {
+                "name": "Torch",
+                "url": "/api/equipment/torch"
+            },
+            {
+                "name": "Totem",
+                "url": "/api/equipment/totem"
+            },
+            {
+                "name": "Vial",
+                "url": "/api/equipment/vial"
+            },
+            {
+                "name": "Wand",
+                "url": "/api/equipment/wand"
+            },
+            {
+                "name": "Waterskin",
+                "url": "/api/equipment/waterskin"
+            },
+            {
+                "name": "Whetstone",
+                "url": "/api/equipment/whetstone"
+            },
+            {
+                "name": "Wooden staff",
+                "url": "/api/equipment/wooden-staff"
+            },
+            {
+                "name": "Yew wand",
+                "url": "/api/equipment/yew-wand"
+            }
+        ]
+    },
+    "Tools": {
+        "name": "Tools",
+        "items": [
+            {
+                "name": "Alchemist's supplies",
+                "url": "/api/equipment/alchemists-supplies"
+            },
+            {
+                "name": "Bagpipes",
+                "url": "/api/equipment/bagpipes"
+            },
+            {
+                "name": "Brewer's supplies",
+                "url": "/api/equipment/brewers-supplies"
+            },
+            {
+                "name": "Calligrapher's supplies",
+                "url": "/api/equipment/calligraphers-supplies"
+            },
+            {
+                "name": "Carpenter's tools",
+                "url": "/api/equipment/carpenters-tools"
+            },
+            {
+                "name": "Cartographer's tools",
+                "url": "/api/equipment/cartographers-tools"
+            },
+            {
+                "name": "Cobbler's tools",
+                "url": "/api/equipment/cobblers-tools"
+            },
+            {
+                "name": "Cook's utensils",
+                "url": "/api/equipment/cooks-utensils"
+            },
+            {
+                "name": "Dice set",
+                "url": "/api/equipment/dice-set"
+            },
+            {
+                "name": "Drum",
+                "url": "/api/equipment/drum"
+            },
+            {
+                "name": "Dulcimer",
+                "url": "/api/equipment/dulcimer"
+            },
+            {
+                "name": "Flute",
+                "url": "/api/equipment/flute"
+            },
+            {
+                "name": "Glassblower's tools",
+                "url": "/api/equipment/glassblowers-tools"
+            },
+            {
+                "name": "Horn",
+                "url": "/api/equipment/horn"
+            },
+            {
+                "name": "Jeweler's tools",
+                "url": "/api/equipment/jewelers-tools"
+            },
+            {
+                "name": "Leatherworker's tools",
+                "url": "/api/equipment/leatherworkers-tools"
+            },
+            {
+                "name": "Lute",
+                "url": "/api/equipment/lute"
+            },
+            {
+                "name": "Lyre",
+                "url": "/api/equipment/lyre"
+            },
+            {
+                "name": "Mason's tools",
+                "url": "/api/equipment/masons-tools"
+            },
+            {
+                "name": "Navigator's tools",
+                "url": "/api/equipment/navigators-tools"
+            },
+            {
+                "name": "Painter's supplies",
+                "url": "/api/equipment/painters-supplies"
+            },
+            {
+                "name": "Pan flute",
+                "url": "/api/equipment/pan-flute"
+            },
+            {
+                "name": "Playing card set",
+                "url": "/api/equipment/playing-card-set"
+            },
+            {
+                "name": "Potter's tools",
+                "url": "/api/equipment/potters-tools"
+            },
+            {
+                "name": "Shawm",
+                "url": "/api/equipment/shawm"
+            },
+            {
+                "name": "Smith's tools",
+                "url": "/api/equipment/smiths-tools"
+            },
+            {
+                "name": "Thieves' tools",
+                "url": "/api/equipment/thieves-tools"
+            },
+            {
+                "name": "Tinker's tools",
+                "url": "/api/equipment/tinkers-tools"
+            },
+            {
+                "name": "Viol",
+                "url": "/api/equipment/viol"
+            },
+            {
+                "name": "Weaver's tools",
+                "url": "/api/equipment/weavers-tools"
+            },
+            {
+                "name": "Woodcarver's tools",
+                "url": "/api/equipment/woodcarvers-tools"
+            }
+        ]
+    },
+    "Mounts and Vehicles": {
+        "name": "Mounts and Vehicles",
+        "items": [
+            {
+                "name": "Animal Feed (1 day)",
+                "url": "/api/equipment/animal-feed-1-day"
+            },
+            {
+                "name": "Barding: Breastplate",
+                "url": "/api/equipment/barding-breastplate"
+            },
+            {
+                "name": "Barding: Chain mail",
+                "url": "/api/equipment/barding-chain-mail"
+            },
+            {
+                "name": "Barding: Chain shirt",
+                "url": "/api/equipment/barding-chain-shirt"
+            },
+            {
+                "name": "Barding: Half plate",
+                "url": "/api/equipment/barding-half-plate"
+            },
+            {
+                "name": "Barding: Hide",
+                "url": "/api/equipment/barding-hide"
+            },
+            {
+                "name": "Barding: Leather",
+                "url": "/api/equipment/barding-leather"
+            },
+            {
+                "name": "Barding: Padded",
+                "url": "/api/equipment/barding-padded"
+            },
+            {
+                "name": "Barding: Plate",
+                "url": "/api/equipment/barding-plate"
+            },
+            {
+                "name": "Barding: Ring mail",
+                "url": "/api/equipment/barding-ring-mail"
+            },
+            {
+                "name": "Barding: Scale mail",
+                "url": "/api/equipment/barding-scale-mail"
+            },
+            {
+                "name": "Barding: Splint",
+                "url": "/api/equipment/barding-splint"
+            },
+            {
+                "name": "Barding: Studded Leather",
+                "url": "/api/equipment/barding-studded-leather"
+            },
+            {
+                "name": "Bit and bridle",
+                "url": "/api/equipment/bit-and-bridle"
+            },
+            {
+                "name": "Camel",
+                "url": "/api/equipment/camel"
+            },
+            {
+                "name": "Carriage",
+                "url": "/api/equipment/carriage"
+            },
+            {
+                "name": "Cart",
+                "url": "/api/equipment/cart"
+            },
+            {
+                "name": "Chariot",
+                "url": "/api/equipment/chariot"
+            },
+            {
+                "name": "Donkey",
+                "url": "/api/equipment/donkey"
+            },
+            {
+                "name": "Elephant",
+                "url": "/api/equipment/elephant"
+            },
+            {
+                "name": "Galley",
+                "url": "/api/equipment/galley"
+            },
+            {
+                "name": "Horse, draft",
+                "url": "/api/equipment/horse-draft"
+            },
+            {
+                "name": "Horse, riding",
+                "url": "/api/equipment/horse-riding"
+            },
+            {
+                "name": "Keelboat",
+                "url": "/api/equipment/keelboat"
+            },
+            {
+                "name": "Longship",
+                "url": "/api/equipment/longship"
+            },
+            {
+                "name": "Mastiff",
+                "url": "/api/equipment/mastiff"
+            },
+            {
+                "name": "Mule",
+                "url": "/api/equipment/mule"
+            },
+            {
+                "name": "Pony",
+                "url": "/api/equipment/pony"
+            },
+            {
+                "name": "Riding",
+                "url": "/api/equipment/riding"
+            },
+            {
+                "name": "Rowboat",
+                "url": "/api/equipment/rowboat"
+            },
+            {
+                "name": "Saddle, Exotic",
+                "url": "/api/equipment/saddle-exotic"
+            },
+            {
+                "name": "Saddle, Military",
+                "url": "/api/equipment/saddle-military"
+            },
+            {
+                "name": "Saddle, Pack",
+                "url": "/api/equipment/saddle-pack"
+            },
+            {
+                "name": "Saddlebags",
+                "url": "/api/equipment/saddlebags"
+            },
+            {
+                "name": "Sailing ship",
+                "url": "/api/equipment/sailing-ship"
+            },
+            {
+                "name": "Sled",
+                "url": "/api/equipment/sled"
+            },
+            {
+                "name": "Stabling (1 day)",
+                "url": "/api/equipment/stabling-1-day"
+            },
+            {
+                "name": "Wagon",
+                "url": "/api/equipment/wagon"
+            },
+            {
+                "name": "Warhorse",
+                "url": "/api/equipment/warhorse"
+            },
+            {
+                "name": "Warship",
+                "url": "/api/equipment/warship"
+            }
+        ]
+    },
+    "Weapons": {
+        "name": "Weapon",
+        "items": [
+            {
+                "name": "Battleaxe",
+                "url": "/api/equipment/battleaxe"
+            },
+            {
+                "name": "Blowgun",
+                "url": "/api/equipment/blowgun"
+            },
+            {
+                "name": "Club",
+                "url": "/api/equipment/club"
+            },
+            {
+                "name": "Crossbow, hand",
+                "url": "/api/equipment/crossbow-hand"
+            },
+            {
+                "name": "Crossbow, heavy",
+                "url": "/api/equipment/crossbow-heavy"
+            },
+            {
+                "name": "Crossbow, light",
+                "url": "/api/equipment/crossbow-light"
+            },
+            {
+                "name": "Dagger",
+                "url": "/api/equipment/dagger"
+            },
+            {
+                "name": "Dart",
+                "url": "/api/equipment/dart"
+            },
+            {
+                "name": "Flail",
+                "url": "/api/equipment/flail"
+            },
+            {
+                "name": "Glaive",
+                "url": "/api/equipment/glaive"
+            },
+            {
+                "name": "Greataxe",
+                "url": "/api/equipment/greataxe"
+            },
+            {
+                "name": "Greatclub",
+                "url": "/api/equipment/greatclub"
+            },
+            {
+                "name": "Greatsword",
+                "url": "/api/equipment/greatsword"
+            },
+            {
+                "name": "Halberd",
+                "url": "/api/equipment/halberd"
+            },
+            {
+                "name": "Handaxe",
+                "url": "/api/equipment/handaxe"
+            },
+            {
+                "name": "Javelin",
+                "url": "/api/equipment/javelin"
+            },
+            {
+                "name": "Lance",
+                "url": "/api/equipment/lance"
+            },
+            {
+                "name": "Light hammer",
+                "url": "/api/equipment/light-hammer"
+            },
+            {
+                "name": "Longbow",
+                "url": "/api/equipment/longbow"
+            },
+            {
+                "name": "Longsword",
+                "url": "/api/equipment/longsword"
+            },
+            {
+                "name": "Mace",
+                "url": "/api/equipment/mace"
+            },
+            {
+                "name": "Maul",
+                "url": "/api/equipment/maul"
+            },
+            {
+                "name": "Morningstar",
+                "url": "/api/equipment/morningstar"
+            },
+            {
+                "name": "Net",
+                "url": "/api/equipment/net"
+            },
+            {
+                "name": "Pike",
+                "url": "/api/equipment/pike"
+            },
+            {
+                "name": "Quarterstaff",
+                "url": "/api/equipment/quarterstaff"
+            },
+            {
+                "name": "Rapier",
+                "url": "/api/equipment/rapier"
+            },
+            {
+                "name": "Scimitar",
+                "url": "/api/equipment/scimitar"
+            },
+            {
+                "name": "Shortbow",
+                "url": "/api/equipment/shortbow"
+            },
+            {
+                "name": "Shortsword",
+                "url": "/api/equipment/shortsword"
+            },
+            {
+                "name": "Sickle",
+                "url": "/api/equipment/sickle"
+            },
+            {
+                "name": "Sling",
+                "url": "/api/equipment/sling"
+            },
+            {
+                "name": "Spear",
+                "url": "/api/equipment/spear"
+            },
+            {
+                "name": "Trident",
+                "url": "/api/equipment/trident"
+            },
+            {
+                "name": "War pick",
+                "url": "/api/equipment/war-pick"
+            },
+            {
+                "name": "Warhammer",
+                "url": "/api/equipment/warhammer"
+            },
+            {
+                "name": "Whip",
+                "url": "/api/equipment/whip"
+            }
+        ]
+    },
+    "Armor": {
+        "name": "Armor",
+        "items": [
+            {
+                "name": "Breastplate",
+                "url": "/api/equipment/breastplate"
+            },
+            {
+                "name": "Chain Mail",
+                "url": "/api/equipment/chain-mail"
+            },
+            {
+                "name": "Chain Shirt",
+                "url": "/api/equipment/chain-shirt"
+            },
+            {
+                "name": "Half Plate",
+                "url": "/api/equipment/half-plate"
+            },
+            {
+                "name": "Hide",
+                "url": "/api/equipment/hide"
+            },
+            {
+                "name": "Leather",
+                "url": "/api/equipment/leather"
+            },
+            {
+                "name": "Padded",
+                "url": "/api/equipment/padded"
+            },
+            {
+                "name": "Plate",
+                "url": "/api/equipment/plate"
+            },
+            {
+                "name": "Ring Mail",
+                "url": "/api/equipment/ring-mail"
+            },
+            {
+                "name": "Scale Mail",
+                "url": "/api/equipment/scale-mail"
+            },
+            {
+                "name": "Shield",
+                "url": "/api/equipment/shield"
+            },
+            {
+                "name": "Splint",
+                "url": "/api/equipment/splint"
+            },
+            {
+                "name": "Studded Leather",
+                "url": "/api/equipment/studded-leather"
+            }
+        ]
+    }
+}

@@ -1,0 +1,3274 @@
+{
+	"Bard": {
+		"0": [
+			{
+				"name": "Dancing Lights",
+				"url": "/api/spells/dancing-lights"
+			},
+			{
+				"name": "Light",
+				"url": "/api/spells/light"
+			},
+			{
+				"name": "Mage Hand",
+				"url": "/api/spells/mage-hand"
+			},
+			{
+				"name": "Mending",
+				"url": "/api/spells/mending"
+			},
+			{
+				"name": "Message",
+				"url": "/api/spells/message"
+			},
+			{
+				"name": "Minor Illusion",
+				"url": "/api/spells/minor-illusion"
+			},
+			{
+				"name": "Prestidigitation",
+				"url": "/api/spells/prestidigitation"
+			},
+			{
+				"name": "True Strike",
+				"url": "/api/spells/true-strike"
+			},
+			{
+				"name": "Vicious Mockery",
+				"url": "/api/spells/vicious-mockery"
+			}
+		],
+		"1": [
+			{
+				"name": "Animal Friendship",
+				"url": "/api/spells/animal-friendship"
+			},
+			{
+				"name": "Bane",
+				"url": "/api/spells/bane"
+			},
+			{
+				"name": "Charm Person",
+				"url": "/api/spells/charm-person"
+			},
+			{
+				"name": "Comprehend Languages",
+				"url": "/api/spells/comprehend-languages"
+			},
+			{
+				"name": "Cure Wounds",
+				"url": "/api/spells/cure-wounds"
+			},
+			{
+				"name": "Detect Magic",
+				"url": "/api/spells/detect-magic"
+			},
+			{
+				"name": "Disguise Self",
+				"url": "/api/spells/disguise-self"
+			},
+			{
+				"name": "Feather Fall",
+				"url": "/api/spells/feather-fall"
+			},
+			{
+				"name": "Healing Word",
+				"url": "/api/spells/healing-word"
+			},
+			{
+				"name": "Heroism",
+				"url": "/api/spells/heroism"
+			},
+			{
+				"name": "Hideous Laughter",
+				"url": "/api/spells/hideous-laughter"
+			},
+			{
+				"name": "Identify",
+				"url": "/api/spells/identify"
+			},
+			{
+				"name": "Illusory Script",
+				"url": "/api/spells/illusory-script"
+			},
+			{
+				"name": "Longstrider",
+				"url": "/api/spells/longstrider"
+			},
+			{
+				"name": "Silent Image",
+				"url": "/api/spells/silent-image"
+			},
+			{
+				"name": "Sleep",
+				"url": "/api/spells/sleep"
+			},
+			{
+				"name": "Speak with Animals",
+				"url": "/api/spells/speak-with-animals"
+			},
+			{
+				"name": "Thunderwave",
+				"url": "/api/spells/thunderwave"
+			},
+			{
+				"name": "Unseen Servant",
+				"url": "/api/spells/unseen-servant"
+			}
+		],
+		"2": [
+			{
+				"name": "Animal Messenger",
+				"url": "/api/spells/animal-messenger"
+			},
+			{
+				"name": "Blindness/Deafness",
+				"url": "/api/spells/blindness-deafness"
+			},
+			{
+				"name": "Calm Emotions",
+				"url": "/api/spells/calm-emotions"
+			},
+			{
+				"name": "Detect Thoughts",
+				"url": "/api/spells/detect-thoughts"
+			},
+			{
+				"name": "Enhance Ability",
+				"url": "/api/spells/enhance-ability"
+			},
+			{
+				"name": "Enthrall",
+				"url": "/api/spells/enthrall"
+			},
+			{
+				"name": "Heat Metal",
+				"url": "/api/spells/heat-metal"
+			},
+			{
+				"name": "Hold Person",
+				"url": "/api/spells/hold-person"
+			},
+			{
+				"name": "Invisibility",
+				"url": "/api/spells/invisibility"
+			},
+			{
+				"name": "Knock",
+				"url": "/api/spells/knock"
+			},
+			{
+				"name": "Lesser Restoration",
+				"url": "/api/spells/lesser-restoration"
+			},
+			{
+				"name": "Locate Animals or Plants",
+				"url": "/api/spells/locate-animals-or-plants"
+			},
+			{
+				"name": "Locate Object",
+				"url": "/api/spells/locate-object"
+			},
+			{
+				"name": "Magic Mouth",
+				"url": "/api/spells/magic-mouth"
+			},
+			{
+				"name": "See Invisibility",
+				"url": "/api/spells/see-invisibility"
+			},
+			{
+				"name": "Shatter",
+				"url": "/api/spells/shatter"
+			},
+			{
+				"name": "Silence",
+				"url": "/api/spells/silence"
+			},
+			{
+				"name": "Suggestion",
+				"url": "/api/spells/suggestion"
+			},
+			{
+				"name": "Zone of Truth",
+				"url": "/api/spells/zone-of-truth"
+			}
+		],
+		"3": [
+			{
+				"name": "Bestow Curse",
+				"url": "/api/spells/bestow-curse"
+			},
+			{
+				"name": "Clairvoyance",
+				"url": "/api/spells/clairvoyance"
+			},
+			{
+				"name": "Dispel Magic",
+				"url": "/api/spells/dispel-magic"
+			},
+			{
+				"name": "Fear",
+				"url": "/api/spells/fear"
+			},
+			{
+				"name": "Glyph of Warding",
+				"url": "/api/spells/glyph-of-warding"
+			},
+			{
+				"name": "Hypnotic Pattern",
+				"url": "/api/spells/hypnotic-pattern"
+			},
+			{
+				"name": "Major Image",
+				"url": "/api/spells/major-image"
+			},
+			{
+				"name": "Nondetection",
+				"url": "/api/spells/nondetection"
+			},
+			{
+				"name": "Plant Growth",
+				"url": "/api/spells/plant-growth"
+			},
+			{
+				"name": "Sending",
+				"url": "/api/spells/sending"
+			},
+			{
+				"name": "Speak with Dead",
+				"url": "/api/spells/speak-with-dead"
+			},
+			{
+				"name": "Speak with Plants",
+				"url": "/api/spells/speak-with-plants"
+			},
+			{
+				"name": "Stinking Cloud",
+				"url": "/api/spells/stinking-cloud"
+			},
+			{
+				"name": "Tiny Hut",
+				"url": "/api/spells/tiny-hut"
+			},
+			{
+				"name": "Tongues",
+				"url": "/api/spells/tongues"
+			}
+		],
+		"4": [
+			{
+				"name": "Compulsion",
+				"url": "/api/spells/compulsion"
+			},
+			{
+				"name": "Confusion",
+				"url": "/api/spells/confusion"
+			},
+			{
+				"name": "Dimension Door",
+				"url": "/api/spells/dimension-door"
+			},
+			{
+				"name": "Freedom of Movement",
+				"url": "/api/spells/freedom-of-movement"
+			},
+			{
+				"name": "Greater Invisibility",
+				"url": "/api/spells/greater-invisibility"
+			},
+			{
+				"name": "Hallucinatory Terrain",
+				"url": "/api/spells/hallucinatory-terrain"
+			},
+			{
+				"name": "Locate Creature",
+				"url": "/api/spells/locate-creature"
+			},
+			{
+				"name": "Polymorph",
+				"url": "/api/spells/polymorph"
+			}
+		],
+		"5": [
+			{
+				"name": "Animate Objects",
+				"url": "/api/spells/animate-objects"
+			},
+			{
+				"name": "Awaken",
+				"url": "/api/spells/awaken"
+			},
+			{
+				"name": "Dominate Person",
+				"url": "/api/spells/dominate-person"
+			},
+			{
+				"name": "Dream",
+				"url": "/api/spells/dream"
+			},
+			{
+				"name": "Geas",
+				"url": "/api/spells/geas"
+			},
+			{
+				"name": "Greater Restoration",
+				"url": "/api/spells/greater-restoration"
+			},
+			{
+				"name": "Hold Monster",
+				"url": "/api/spells/hold-monster"
+			},
+			{
+				"name": "Legend Lore",
+				"url": "/api/spells/legend-lore"
+			},
+			{
+				"name": "Mass Cure Wounds",
+				"url": "/api/spells/mass-cure-wounds"
+			},
+			{
+				"name": "Mislead",
+				"url": "/api/spells/mislead"
+			},
+			{
+				"name": "Modify Memory",
+				"url": "/api/spells/modify-memory"
+			},
+			{
+				"name": "Planar Binding",
+				"url": "/api/spells/planar-binding"
+			},
+			{
+				"name": "Raise Dead",
+				"url": "/api/spells/raise-dead"
+			},
+			{
+				"name": "Scrying",
+				"url": "/api/spells/scrying"
+			},
+			{
+				"name": "Seeming",
+				"url": "/api/spells/seeming"
+			},
+			{
+				"name": "Teleportation Circle",
+				"url": "/api/spells/teleportation-circle"
+			}
+		],
+		"6": [
+			{
+				"name": "Eyebite",
+				"url": "/api/spells/eyebite"
+			},
+			{
+				"name": "Find the Path",
+				"url": "/api/spells/find-the-path"
+			},
+			{
+				"name": "Guards and Wards",
+				"url": "/api/spells/guards-and-wards"
+			},
+			{
+				"name": "Irresistible Dance",
+				"url": "/api/spells/irresistible-dance"
+			},
+			{
+				"name": "Mass Suggestion",
+				"url": "/api/spells/mass-suggestion"
+			},
+			{
+				"name": "Programmed Illusion",
+				"url": "/api/spells/programmed-illusion"
+			},
+			{
+				"name": "True Seeing",
+				"url": "/api/spells/true-seeing"
+			}
+		],
+		"7": [
+			{
+				"name": "Arcane Sword",
+				"url": "/api/spells/arcane-sword"
+			},
+			{
+				"name": "Etherealness",
+				"url": "/api/spells/etherealness"
+			},
+			{
+				"name": "Forcecage",
+				"url": "/api/spells/forcecage"
+			},
+			{
+				"name": "Magnificent Mansion",
+				"url": "/api/spells/magnificent-mansion"
+			},
+			{
+				"name": "Mirage Arcane",
+				"url": "/api/spells/mirage-arcane"
+			},
+			{
+				"name": "Project Image",
+				"url": "/api/spells/project-image"
+			},
+			{
+				"name": "Regenerate",
+				"url": "/api/spells/regenerate"
+			},
+			{
+				"name": "Resurrection",
+				"url": "/api/spells/resurrection"
+			},
+			{
+				"name": "Symbol",
+				"url": "/api/spells/symbol"
+			},
+			{
+				"name": "Teleport",
+				"url": "/api/spells/teleport"
+			}
+		],
+		"8": [
+			{
+				"name": "Dominate Monster",
+				"url": "/api/spells/dominate-monster"
+			},
+			{
+				"name": "Feeblemind",
+				"url": "/api/spells/feeblemind"
+			},
+			{
+				"name": "Glibness",
+				"url": "/api/spells/glibness"
+			},
+			{
+				"name": "Mind Blank",
+				"url": "/api/spells/mind-blank"
+			},
+			{
+				"name": "Power Word Stun",
+				"url": "/api/spells/power-word-stun"
+			}
+		],
+		"9": [
+			{
+				"name": "Foresight",
+				"url": "/api/spells/foresight"
+			},
+			{
+				"name": "Power Word Kill",
+				"url": "/api/spells/power-word-kill"
+			},
+			{
+				"name": "True Polymorph",
+				"url": "/api/spells/true-polymorph"
+			}
+		]
+	},
+	"Cleric": {
+		"0": [
+			{
+				"name": "Guidance",
+				"url": "/api/spells/guidance"
+			},
+			{
+				"name": "Light",
+				"url": "/api/spells/light"
+			},
+			{
+				"name": "Mending",
+				"url": "/api/spells/mending"
+			},
+			{
+				"name": "Resistance",
+				"url": "/api/spells/resistance"
+			},
+			{
+				"name": "Sacred Flame",
+				"url": "/api/spells/sacred-flame"
+			},
+			{
+				"name": "Spare the Dying",
+				"url": "/api/spells/spare-the-dying"
+			},
+			{
+				"name": "Thaumaturgy",
+				"url": "/api/spells/thaumaturgy"
+			}
+		],
+		"1": [
+			{
+				"name": "Animal Friendship",
+				"url": "/api/spells/animal-friendship"
+			},
+			{
+				"name": "Bane",
+				"url": "/api/spells/bane"
+			},
+			{
+				"name": "Bless",
+				"url": "/api/spells/bless"
+			},
+			{
+				"name": "Command",
+				"url": "/api/spells/command"
+			},
+			{
+				"name": "Create or Destroy Water",
+				"url": "/api/spells/create-or-destroy-water"
+			},
+			{
+				"name": "Cure Wounds",
+				"url": "/api/spells/cure-wounds"
+			},
+			{
+				"name": "Detect Evil and Good",
+				"url": "/api/spells/detect-evil-and-good"
+			},
+			{
+				"name": "Detect Magic",
+				"url": "/api/spells/detect-magic"
+			},
+			{
+				"name": "Detect Poison and Disease",
+				"url": "/api/spells/detect-poison-and-disease"
+			},
+			{
+				"name": "Guiding Bolt",
+				"url": "/api/spells/guiding-bolt"
+			},
+			{
+				"name": "Healing Word",
+				"url": "/api/spells/healing-word"
+			},
+			{
+				"name": "Inflict Wounds",
+				"url": "/api/spells/inflict-wounds"
+			},
+			{
+				"name": "Protection from Evil and Good",
+				"url": "/api/spells/protection-from-evil-and-good"
+			},
+			{
+				"name": "Purify Food and Drink",
+				"url": "/api/spells/purify-food-and-drink"
+			},
+			{
+				"name": "Sanctuary",
+				"url": "/api/spells/sanctuary"
+			},
+			{
+				"name": "Shield of Faith",
+				"url": "/api/spells/shield-of-faith"
+			}
+		],
+		"2": [
+			{
+				"name": "Aid",
+				"url": "/api/spells/aid"
+			},
+			{
+				"name": "Augury",
+				"url": "/api/spells/augury"
+			},
+			{
+				"name": "Blindness/Deafness",
+				"url": "/api/spells/blindness-deafness"
+			},
+			{
+				"name": "Calm Emotions",
+				"url": "/api/spells/calm-emotions"
+			},
+			{
+				"name": "Continual Flame",
+				"url": "/api/spells/continual-flame"
+			},
+			{
+				"name": "Enhance Ability",
+				"url": "/api/spells/enhance-ability"
+			},
+			{
+				"name": "Find Traps",
+				"url": "/api/spells/find-traps"
+			},
+			{
+				"name": "Gentle Repose",
+				"url": "/api/spells/gentle-repose"
+			},
+			{
+				"name": "Hold Person",
+				"url": "/api/spells/hold-person"
+			},
+			{
+				"name": "Lesser Restoration",
+				"url": "/api/spells/lesser-restoration"
+			},
+			{
+				"name": "Locate Object",
+				"url": "/api/spells/locate-object"
+			},
+			{
+				"name": "Prayer of Healing",
+				"url": "/api/spells/prayer-of-healing"
+			},
+			{
+				"name": "Protection from Poison",
+				"url": "/api/spells/protection-from-poison"
+			},
+			{
+				"name": "Silence",
+				"url": "/api/spells/silence"
+			},
+			{
+				"name": "Spiritual Weapon",
+				"url": "/api/spells/spiritual-weapon"
+			},
+			{
+				"name": "Warding Bond",
+				"url": "/api/spells/warding-bond"
+			},
+			{
+				"name": "Zone of Truth",
+				"url": "/api/spells/zone-of-truth"
+			}
+		],
+		"3": [
+			{
+				"name": "Animate Dead",
+				"url": "/api/spells/animate-dead"
+			},
+			{
+				"name": "Beacon of Hope",
+				"url": "/api/spells/beacon-of-hope"
+			},
+			{
+				"name": "Bestow Curse",
+				"url": "/api/spells/bestow-curse"
+			},
+			{
+				"name": "Clairvoyance",
+				"url": "/api/spells/clairvoyance"
+			},
+			{
+				"name": "Create Food and Water",
+				"url": "/api/spells/create-food-and-water"
+			},
+			{
+				"name": "Daylight",
+				"url": "/api/spells/daylight"
+			},
+			{
+				"name": "Dispel Magic",
+				"url": "/api/spells/dispel-magic"
+			},
+			{
+				"name": "Glyph of Warding",
+				"url": "/api/spells/glyph-of-warding"
+			},
+			{
+				"name": "Magic Circle",
+				"url": "/api/spells/magic-circle"
+			},
+			{
+				"name": "Mass Healing Word",
+				"url": "/api/spells/mass-healing-word"
+			},
+			{
+				"name": "Meld into Stone",
+				"url": "/api/spells/meld-into-stone"
+			},
+			{
+				"name": "Protection from Energy",
+				"url": "/api/spells/protection-from-energy"
+			},
+			{
+				"name": "Remove Curse",
+				"url": "/api/spells/remove-curse"
+			},
+			{
+				"name": "Revivify",
+				"url": "/api/spells/revivify"
+			},
+			{
+				"name": "Sending",
+				"url": "/api/spells/sending"
+			},
+			{
+				"name": "Speak with Dead",
+				"url": "/api/spells/speak-with-dead"
+			},
+			{
+				"name": "Spirit Guardians",
+				"url": "/api/spells/spirit-guardians"
+			},
+			{
+				"name": "Tongues",
+				"url": "/api/spells/tongues"
+			},
+			{
+				"name": "Water Walk",
+				"url": "/api/spells/water-walk"
+			}
+		],
+		"4": [
+			{
+				"name": "Arcane Eye",
+				"url": "/api/spells/arcane-eye"
+			},
+			{
+				"name": "Banishment",
+				"url": "/api/spells/banishment"
+			},
+			{
+				"name": "Control Water",
+				"url": "/api/spells/control-water"
+			},
+			{
+				"name": "Death Ward",
+				"url": "/api/spells/death-ward"
+			},
+			{
+				"name": "Freedom of Movement",
+				"url": "/api/spells/freedom-of-movement"
+			},
+			{
+				"name": "Guardian of Faith",
+				"url": "/api/spells/guardian-of-faith"
+			},
+			{
+				"name": "Locate Creature",
+				"url": "/api/spells/locate-creature"
+			},
+			{
+				"name": "Stone Shape",
+				"url": "/api/spells/stone-shape"
+			}
+		],
+		"5": [
+			{
+				"name": "Commune",
+				"url": "/api/spells/commune"
+			},
+			{
+				"name": "Contagion",
+				"url": "/api/spells/contagion"
+			},
+			{
+				"name": "Dispel Evil and Good",
+				"url": "/api/spells/dispel-evil-and-good"
+			},
+			{
+				"name": "Flame Strike",
+				"url": "/api/spells/flame-strike"
+			},
+			{
+				"name": "Geas",
+				"url": "/api/spells/geas"
+			},
+			{
+				"name": "Greater Restoration",
+				"url": "/api/spells/greater-restoration"
+			},
+			{
+				"name": "Hallow",
+				"url": "/api/spells/hallow"
+			},
+			{
+				"name": "Insect Plague",
+				"url": "/api/spells/insect-plague"
+			},
+			{
+				"name": "Legend Lore",
+				"url": "/api/spells/legend-lore"
+			},
+			{
+				"name": "Mass Cure Wounds",
+				"url": "/api/spells/mass-cure-wounds"
+			},
+			{
+				"name": "Planar Binding",
+				"url": "/api/spells/planar-binding"
+			},
+			{
+				"name": "Raise Dead",
+				"url": "/api/spells/raise-dead"
+			},
+			{
+				"name": "Scrying",
+				"url": "/api/spells/scrying"
+			}
+		],
+		"6": [
+			{
+				"name": "Blade Barrier",
+				"url": "/api/spells/blade-barrier"
+			},
+			{
+				"name": "Create Undead",
+				"url": "/api/spells/create-undead"
+			},
+			{
+				"name": "Find the Path",
+				"url": "/api/spells/find-the-path"
+			},
+			{
+				"name": "Forbiddance",
+				"url": "/api/spells/forbiddance"
+			},
+			{
+				"name": "Harm",
+				"url": "/api/spells/harm"
+			},
+			{
+				"name": "Heal",
+				"url": "/api/spells/heal"
+			},
+			{
+				"name": "Heroes' Feast",
+				"url": "/api/spells/heroes-feast"
+			},
+			{
+				"name": "Planar Ally",
+				"url": "/api/spells/planar-ally"
+			},
+			{
+				"name": "True Seeing",
+				"url": "/api/spells/true-seeing"
+			},
+			{
+				"name": "Word of Recall",
+				"url": "/api/spells/word-of-recall"
+			}
+		],
+		"7": [
+			{
+				"name": "Conjure Celestial",
+				"url": "/api/spells/conjure-celestial"
+			},
+			{
+				"name": "Divine Word",
+				"url": "/api/spells/divine-word"
+			},
+			{
+				"name": "Etherealness",
+				"url": "/api/spells/etherealness"
+			},
+			{
+				"name": "Fire Storm",
+				"url": "/api/spells/fire-storm"
+			},
+			{
+				"name": "Plane Shift",
+				"url": "/api/spells/plane-shift"
+			},
+			{
+				"name": "Regenerate",
+				"url": "/api/spells/regenerate"
+			},
+			{
+				"name": "Resurrection",
+				"url": "/api/spells/resurrection"
+			},
+			{
+				"name": "Symbol",
+				"url": "/api/spells/symbol"
+			}
+		],
+		"8": [
+			{
+				"name": "Antimagic Field",
+				"url": "/api/spells/antimagic-field"
+			},
+			{
+				"name": "Control Weather",
+				"url": "/api/spells/control-weather"
+			},
+			{
+				"name": "Earthquake",
+				"url": "/api/spells/earthquake"
+			},
+			{
+				"name": "Holy Aura",
+				"url": "/api/spells/holy-aura"
+			}
+		],
+		"9": [
+			{
+				"name": "Astral Projection",
+				"url": "/api/spells/astral-projection"
+			},
+			{
+				"name": "Gate",
+				"url": "/api/spells/gate"
+			},
+			{
+				"name": "Mass Heal",
+				"url": "/api/spells/mass-heal"
+			},
+			{
+				"name": "True Resurrection",
+				"url": "/api/spells/true-resurrection"
+			}
+		]
+	},
+	"Druid": {
+		"0": [
+			{
+				"name": "Druidcraft",
+				"url": "/api/spells/druidcraft"
+			},
+			{
+				"name": "Guidance",
+				"url": "/api/spells/guidance"
+			},
+			{
+				"name": "Mending",
+				"url": "/api/spells/mending"
+			},
+			{
+				"name": "Produce Flame",
+				"url": "/api/spells/produce-flame"
+			},
+			{
+				"name": "Resistance",
+				"url": "/api/spells/resistance"
+			},
+			{
+				"name": "Shillelagh",
+				"url": "/api/spells/shillelagh"
+			}
+		],
+		"1": [
+			{
+				"name": "Animal Friendship",
+				"url": "/api/spells/animal-friendship"
+			},
+			{
+				"name": "Charm Person",
+				"url": "/api/spells/charm-person"
+			},
+			{
+				"name": "Create or Destroy Water",
+				"url": "/api/spells/create-or-destroy-water"
+			},
+			{
+				"name": "Cure Wounds",
+				"url": "/api/spells/cure-wounds"
+			},
+			{
+				"name": "Detect Magic",
+				"url": "/api/spells/detect-magic"
+			},
+			{
+				"name": "Detect Poison and Disease",
+				"url": "/api/spells/detect-poison-and-disease"
+			},
+			{
+				"name": "Entangle",
+				"url": "/api/spells/entangle"
+			},
+			{
+				"name": "Faerie Fire",
+				"url": "/api/spells/faerie-fire"
+			},
+			{
+				"name": "Fog Cloud",
+				"url": "/api/spells/fog-cloud"
+			},
+			{
+				"name": "Goodberry",
+				"url": "/api/spells/goodberry"
+			},
+			{
+				"name": "Healing Word",
+				"url": "/api/spells/healing-word"
+			},
+			{
+				"name": "Jump",
+				"url": "/api/spells/jump"
+			},
+			{
+				"name": "Longstrider",
+				"url": "/api/spells/longstrider"
+			},
+			{
+				"name": "Purify Food and Drink",
+				"url": "/api/spells/purify-food-and-drink"
+			},
+			{
+				"name": "Speak with Animals",
+				"url": "/api/spells/speak-with-animals"
+			},
+			{
+				"name": "Thunderwave",
+				"url": "/api/spells/thunderwave"
+			}
+		],
+		"2": [
+			{
+				"name": "Animal Messenger",
+				"url": "/api/spells/animal-messenger"
+			},
+			{
+				"name": "Barkskin",
+				"url": "/api/spells/barkskin"
+			},
+			{
+				"name": "Darkvision",
+				"url": "/api/spells/darkvision"
+			},
+			{
+				"name": "Enhance Ability",
+				"url": "/api/spells/enhance-ability"
+			},
+			{
+				"name": "Find Traps",
+				"url": "/api/spells/find-traps"
+			},
+			{
+				"name": "Flame Blade",
+				"url": "/api/spells/flame-blade"
+			},
+			{
+				"name": "Flaming Sphere",
+				"url": "/api/spells/flaming-sphere"
+			},
+			{
+				"name": "Gust of Wind",
+				"url": "/api/spells/gust-of-wind"
+			},
+			{
+				"name": "Heat Metal",
+				"url": "/api/spells/heat-metal"
+			},
+			{
+				"name": "Hold Person",
+				"url": "/api/spells/hold-person"
+			},
+			{
+				"name": "Lesser Restoration",
+				"url": "/api/spells/lesser-restoration"
+			},
+			{
+				"name": "Locate Animals or Plants",
+				"url": "/api/spells/locate-animals-or-plants"
+			},
+			{
+				"name": "Locate Object",
+				"url": "/api/spells/locate-object"
+			},
+			{
+				"name": "Moonbeam",
+				"url": "/api/spells/moonbeam"
+			},
+			{
+				"name": "Pass without Trace",
+				"url": "/api/spells/pass-without-trace"
+			},
+			{
+				"name": "Protection from Poison",
+				"url": "/api/spells/protection-from-poison"
+			},
+			{
+				"name": "Spike Growth",
+				"url": "/api/spells/spike-growth"
+			}
+		],
+		"3": [
+			{
+				"name": "Call Lightning",
+				"url": "/api/spells/call-lightning"
+			},
+			{
+				"name": "Conjure Animals",
+				"url": "/api/spells/conjure-animals"
+			},
+			{
+				"name": "Create Food and Water",
+				"url": "/api/spells/create-food-and-water"
+			},
+			{
+				"name": "Daylight",
+				"url": "/api/spells/daylight"
+			},
+			{
+				"name": "Dispel Magic",
+				"url": "/api/spells/dispel-magic"
+			},
+			{
+				"name": "Plant Growth",
+				"url": "/api/spells/plant-growth"
+			},
+			{
+				"name": "Protection from Energy",
+				"url": "/api/spells/protection-from-energy"
+			},
+			{
+				"name": "Sleet Storm",
+				"url": "/api/spells/sleet-storm"
+			},
+			{
+				"name": "Speak with Plants",
+				"url": "/api/spells/speak-with-plants"
+			},
+			{
+				"name": "Water Breathing",
+				"url": "/api/spells/water-breathing"
+			},
+			{
+				"name": "Water Walk",
+				"url": "/api/spells/water-walk"
+			},
+			{
+				"name": "Wind Wall",
+				"url": "/api/spells/wind-wall"
+			}
+		],
+		"4": [
+			{
+				"name": "Blight",
+				"url": "/api/spells/blight"
+			},
+			{
+				"name": "Confusion",
+				"url": "/api/spells/confusion"
+			},
+			{
+				"name": "Conjure Minor Elementals",
+				"url": "/api/spells/conjure-minor-elementals"
+			},
+			{
+				"name": "Conjure Woodland Beings",
+				"url": "/api/spells/conjure-woodland-beings"
+			},
+			{
+				"name": "Control Water",
+				"url": "/api/spells/control-water"
+			},
+			{
+				"name": "Divination",
+				"url": "/api/spells/divination"
+			},
+			{
+				"name": "Dominate Beast",
+				"url": "/api/spells/dominate-beast"
+			},
+			{
+				"name": "Freedom of Movement",
+				"url": "/api/spells/freedom-of-movement"
+			},
+			{
+				"name": "Giant Insect",
+				"url": "/api/spells/giant-insect"
+			},
+			{
+				"name": "Hallucinatory Terrain",
+				"url": "/api/spells/hallucinatory-terrain"
+			},
+			{
+				"name": "Ice Storm",
+				"url": "/api/spells/ice-storm"
+			},
+			{
+				"name": "Locate Creature",
+				"url": "/api/spells/locate-creature"
+			},
+			{
+				"name": "Polymorph",
+				"url": "/api/spells/polymorph"
+			},
+			{
+				"name": "Stone Shape",
+				"url": "/api/spells/stone-shape"
+			},
+			{
+				"name": "Stoneskin",
+				"url": "/api/spells/stoneskin"
+			},
+			{
+				"name": "Wall of Fire",
+				"url": "/api/spells/wall-of-fire"
+			}
+		],
+		"5": [
+			{
+				"name": "Antilife Shell",
+				"url": "/api/spells/antilife-shell"
+			},
+			{
+				"name": "Awaken",
+				"url": "/api/spells/awaken"
+			},
+			{
+				"name": "Commune with Nature",
+				"url": "/api/spells/commune-with-nature"
+			},
+			{
+				"name": "Conjure Elemental",
+				"url": "/api/spells/conjure-elemental"
+			},
+			{
+				"name": "Contagion",
+				"url": "/api/spells/contagion"
+			},
+			{
+				"name": "Geas",
+				"url": "/api/spells/geas"
+			},
+			{
+				"name": "Greater Restoration",
+				"url": "/api/spells/greater-restoration"
+			},
+			{
+				"name": "Insect Plague",
+				"url": "/api/spells/insect-plague"
+			},
+			{
+				"name": "Mass Cure Wounds",
+				"url": "/api/spells/mass-cure-wounds"
+			},
+			{
+				"name": "Planar Binding",
+				"url": "/api/spells/planar-binding"
+			},
+			{
+				"name": "Reincarnate",
+				"url": "/api/spells/reincarnate"
+			},
+			{
+				"name": "Scrying",
+				"url": "/api/spells/scrying"
+			},
+			{
+				"name": "Tree Stride",
+				"url": "/api/spells/tree-stride"
+			},
+			{
+				"name": "Wall of Stone",
+				"url": "/api/spells/wall-of-stone"
+			}
+		],
+		"6": [
+			{
+				"name": "Conjure Fey",
+				"url": "/api/spells/conjure-fey"
+			},
+			{
+				"name": "Heal",
+				"url": "/api/spells/heal"
+			},
+			{
+				"name": "Heroes' Feast",
+				"url": "/api/spells/heroes-feast"
+			},
+			{
+				"name": "Move Earth",
+				"url": "/api/spells/move-earth"
+			},
+			{
+				"name": "Sunbeam",
+				"url": "/api/spells/sunbeam"
+			},
+			{
+				"name": "Transport via Plants",
+				"url": "/api/spells/transport-via-plants"
+			},
+			{
+				"name": "Wall of Thorns",
+				"url": "/api/spells/wall-of-thorns"
+			},
+			{
+				"name": "Wind Walk",
+				"url": "/api/spells/wind-walk"
+			}
+		],
+		"7": [
+			{
+				"name": "Fire Storm",
+				"url": "/api/spells/fire-storm"
+			},
+			{
+				"name": "Mirage Arcane",
+				"url": "/api/spells/mirage-arcane"
+			},
+			{
+				"name": "Plane Shift",
+				"url": "/api/spells/plane-shift"
+			},
+			{
+				"name": "Regenerate",
+				"url": "/api/spells/regenerate"
+			},
+			{
+				"name": "Reverse Gravity",
+				"url": "/api/spells/reverse-gravity"
+			}
+		],
+		"8": [
+			{
+				"name": "Animal Shapes",
+				"url": "/api/spells/animal-shapes"
+			},
+			{
+				"name": "Antipathy/Sympathy",
+				"url": "/api/spells/antipathy-sympathy"
+			},
+			{
+				"name": "Control Weather",
+				"url": "/api/spells/control-weather"
+			},
+			{
+				"name": "Earthquake",
+				"url": "/api/spells/earthquake"
+			},
+			{
+				"name": "Feeblemind",
+				"url": "/api/spells/feeblemind"
+			},
+			{
+				"name": "Sunburst",
+				"url": "/api/spells/sunburst"
+			}
+		],
+		"9": [
+			{
+				"name": "Foresight",
+				"url": "/api/spells/foresight"
+			},
+			{
+				"name": "Shapechange",
+				"url": "/api/spells/shapechange"
+			},
+			{
+				"name": "Storm of Vengeance",
+				"url": "/api/spells/storm-of-vengeance"
+			},
+			{
+				"name": "True Resurrection",
+				"url": "/api/spells/true-resurrection"
+			}
+		]
+	},
+	"Paladin": {
+		"1": [
+			{
+				"name": "Bless",
+				"url": "/api/spells/bless"
+			},
+			{
+				"name": "Command",
+				"url": "/api/spells/command"
+			},
+			{
+				"name": "Cure Wounds",
+				"url": "/api/spells/cure-wounds"
+			},
+			{
+				"name": "Detect Evil and Good",
+				"url": "/api/spells/detect-evil-and-good"
+			},
+			{
+				"name": "Detect Magic",
+				"url": "/api/spells/detect-magic"
+			},
+			{
+				"name": "Detect Poison and Disease",
+				"url": "/api/spells/detect-poison-and-disease"
+			},
+			{
+				"name": "Divine Favor",
+				"url": "/api/spells/divine-favor"
+			},
+			{
+				"name": "Heroism",
+				"url": "/api/spells/heroism"
+			},
+			{
+				"name": "Hunter's Mark",
+				"url": "/api/spells/hunters-mark"
+			},
+			{
+				"name": "Protection from Evil and Good",
+				"url": "/api/spells/protection-from-evil-and-good"
+			},
+			{
+				"name": "Purify Food and Drink",
+				"url": "/api/spells/purify-food-and-drink"
+			},
+			{
+				"name": "Shield of Faith",
+				"url": "/api/spells/shield-of-faith"
+			}
+		],
+		"2": [
+			{
+				"name": "Aid",
+				"url": "/api/spells/aid"
+			},
+			{
+				"name": "Branding Smite",
+				"url": "/api/spells/branding-smite"
+			},
+			{
+				"name": "Find Steed",
+				"url": "/api/spells/find-steed"
+			},
+			{
+				"name": "Lesser Restoration",
+				"url": "/api/spells/lesser-restoration"
+			},
+			{
+				"name": "Locate Object",
+				"url": "/api/spells/locate-object"
+			},
+			{
+				"name": "Magic Weapon",
+				"url": "/api/spells/magic-weapon"
+			},
+			{
+				"name": "Protection from Poison",
+				"url": "/api/spells/protection-from-poison"
+			},
+			{
+				"name": "Zone of Truth",
+				"url": "/api/spells/zone-of-truth"
+			}
+		],
+		"3": [
+			{
+				"name": "Create Food and Water",
+				"url": "/api/spells/create-food-and-water"
+			},
+			{
+				"name": "Daylight",
+				"url": "/api/spells/daylight"
+			},
+			{
+				"name": "Dispel Magic",
+				"url": "/api/spells/dispel-magic"
+			},
+			{
+				"name": "Magic Circle",
+				"url": "/api/spells/magic-circle"
+			},
+			{
+				"name": "Remove Curse",
+				"url": "/api/spells/remove-curse"
+			},
+			{
+				"name": "Revivify",
+				"url": "/api/spells/revivify"
+			}
+		],
+		"4": [
+			{
+				"name": "Banishment",
+				"url": "/api/spells/banishment"
+			},
+			{
+				"name": "Death Ward",
+				"url": "/api/spells/death-ward"
+			},
+			{
+				"name": "Guardian of Faith",
+				"url": "/api/spells/guardian-of-faith"
+			},
+			{
+				"name": "Locate Creature",
+				"url": "/api/spells/locate-creature"
+			}
+		],
+		"5": [
+			{
+				"name": "Dispel Evil and Good",
+				"url": "/api/spells/dispel-evil-and-good"
+			},
+			{
+				"name": "Geas",
+				"url": "/api/spells/geas"
+			},
+			{
+				"name": "Raise Dead",
+				"url": "/api/spells/raise-dead"
+			}
+		]
+	},
+	"Ranger": {
+		"1": [
+			{
+				"name": "Alarm",
+				"url": "/api/spells/alarm"
+			},
+			{
+				"name": "Animal Friendship",
+				"url": "/api/spells/animal-friendship"
+			},
+			{
+				"name": "Cure Wounds",
+				"url": "/api/spells/cure-wounds"
+			},
+			{
+				"name": "Detect Magic",
+				"url": "/api/spells/detect-magic"
+			},
+			{
+				"name": "Detect Poison and Disease",
+				"url": "/api/spells/detect-poison-and-disease"
+			},
+			{
+				"name": "Fog Cloud",
+				"url": "/api/spells/fog-cloud"
+			},
+			{
+				"name": "Goodberry",
+				"url": "/api/spells/goodberry"
+			},
+			{
+				"name": "Hunter's Mark",
+				"url": "/api/spells/hunters-mark"
+			},
+			{
+				"name": "Jump",
+				"url": "/api/spells/jump"
+			},
+			{
+				"name": "Longstrider",
+				"url": "/api/spells/longstrider"
+			},
+			{
+				"name": "Speak with Animals",
+				"url": "/api/spells/speak-with-animals"
+			}
+		],
+		"2": [
+			{
+				"name": "Animal Messenger",
+				"url": "/api/spells/animal-messenger"
+			},
+			{
+				"name": "Barkskin",
+				"url": "/api/spells/barkskin"
+			},
+			{
+				"name": "Darkvision",
+				"url": "/api/spells/darkvision"
+			},
+			{
+				"name": "Find Traps",
+				"url": "/api/spells/find-traps"
+			},
+			{
+				"name": "Lesser Restoration",
+				"url": "/api/spells/lesser-restoration"
+			},
+			{
+				"name": "Locate Animals or Plants",
+				"url": "/api/spells/locate-animals-or-plants"
+			},
+			{
+				"name": "Locate Object",
+				"url": "/api/spells/locate-object"
+			},
+			{
+				"name": "Pass without Trace",
+				"url": "/api/spells/pass-without-trace"
+			},
+			{
+				"name": "Protection from Poison",
+				"url": "/api/spells/protection-from-poison"
+			},
+			{
+				"name": "Silence",
+				"url": "/api/spells/silence"
+			},
+			{
+				"name": "Spike Growth",
+				"url": "/api/spells/spike-growth"
+			}
+		],
+		"3": [
+			{
+				"name": "Conjure Animals",
+				"url": "/api/spells/conjure-animals"
+			},
+			{
+				"name": "Daylight",
+				"url": "/api/spells/daylight"
+			},
+			{
+				"name": "Nondetection",
+				"url": "/api/spells/nondetection"
+			},
+			{
+				"name": "Plant Growth",
+				"url": "/api/spells/plant-growth"
+			},
+			{
+				"name": "Protection from Energy",
+				"url": "/api/spells/protection-from-energy"
+			},
+			{
+				"name": "Speak with Plants",
+				"url": "/api/spells/speak-with-plants"
+			},
+			{
+				"name": "Water Breathing",
+				"url": "/api/spells/water-breathing"
+			},
+			{
+				"name": "Water Walk",
+				"url": "/api/spells/water-walk"
+			},
+			{
+				"name": "Wind Wall",
+				"url": "/api/spells/wind-wall"
+			}
+		],
+		"4": [
+			{
+				"name": "Conjure Woodland Beings",
+				"url": "/api/spells/conjure-woodland-beings"
+			},
+			{
+				"name": "Freedom of Movement",
+				"url": "/api/spells/freedom-of-movement"
+			},
+			{
+				"name": "Locate Creature",
+				"url": "/api/spells/locate-creature"
+			},
+			{
+				"name": "Stoneskin",
+				"url": "/api/spells/stoneskin"
+			}
+		],
+		"5": [
+			{
+				"name": "Commune with Nature",
+				"url": "/api/spells/commune-with-nature"
+			},
+			{
+				"name": "Tree Stride",
+				"url": "/api/spells/tree-stride"
+			}
+		]
+	},
+	"Sorcerer": {
+		"0": [
+			{
+				"name": "Acid Splash",
+				"url": "/api/spells/acid-splash"
+			},
+			{
+				"name": "Chill Touch",
+				"url": "/api/spells/chill-touch"
+			},
+			{
+				"name": "Dancing Lights",
+				"url": "/api/spells/dancing-lights"
+			},
+			{
+				"name": "Fire Bolt",
+				"url": "/api/spells/fire-bolt"
+			},
+			{
+				"name": "Light",
+				"url": "/api/spells/light"
+			},
+			{
+				"name": "Mage Hand",
+				"url": "/api/spells/mage-hand"
+			},
+			{
+				"name": "Mending",
+				"url": "/api/spells/mending"
+			},
+			{
+				"name": "Message",
+				"url": "/api/spells/message"
+			},
+			{
+				"name": "Minor Illusion",
+				"url": "/api/spells/minor-illusion"
+			},
+			{
+				"name": "Poison Spray",
+				"url": "/api/spells/poison-spray"
+			},
+			{
+				"name": "Prestidigitation",
+				"url": "/api/spells/prestidigitation"
+			},
+			{
+				"name": "Ray of Frost",
+				"url": "/api/spells/ray-of-frost"
+			},
+			{
+				"name": "Shocking Grasp",
+				"url": "/api/spells/shocking-grasp"
+			},
+			{
+				"name": "True Strike",
+				"url": "/api/spells/true-strike"
+			}
+		],
+		"1": [
+			{
+				"name": "Burning Hands",
+				"url": "/api/spells/burning-hands"
+			},
+			{
+				"name": "Charm Person",
+				"url": "/api/spells/charm-person"
+			},
+			{
+				"name": "Color Spray",
+				"url": "/api/spells/color-spray"
+			},
+			{
+				"name": "Comprehend Languages",
+				"url": "/api/spells/comprehend-languages"
+			},
+			{
+				"name": "Detect Magic",
+				"url": "/api/spells/detect-magic"
+			},
+			{
+				"name": "Disguise Self",
+				"url": "/api/spells/disguise-self"
+			},
+			{
+				"name": "Expeditious Retreat",
+				"url": "/api/spells/expeditious-retreat"
+			},
+			{
+				"name": "False Life",
+				"url": "/api/spells/false-life"
+			},
+			{
+				"name": "Feather Fall",
+				"url": "/api/spells/feather-fall"
+			},
+			{
+				"name": "Fog Cloud",
+				"url": "/api/spells/fog-cloud"
+			},
+			{
+				"name": "Jump",
+				"url": "/api/spells/jump"
+			},
+			{
+				"name": "Mage Armor",
+				"url": "/api/spells/mage-armor"
+			},
+			{
+				"name": "Magic Missile",
+				"url": "/api/spells/magic-missile"
+			},
+			{
+				"name": "Shield",
+				"url": "/api/spells/shield"
+			},
+			{
+				"name": "Silent Image",
+				"url": "/api/spells/silent-image"
+			},
+			{
+				"name": "Sleep",
+				"url": "/api/spells/sleep"
+			},
+			{
+				"name": "Thunderwave",
+				"url": "/api/spells/thunderwave"
+			}
+		],
+		"2": [
+			{
+				"name": "Alter Self",
+				"url": "/api/spells/alter-self"
+			},
+			{
+				"name": "Blindness/Deafness",
+				"url": "/api/spells/blindness-deafness"
+			},
+			{
+				"name": "Blur",
+				"url": "/api/spells/blur"
+			},
+			{
+				"name": "Darkness",
+				"url": "/api/spells/darkness"
+			},
+			{
+				"name": "Darkvision",
+				"url": "/api/spells/darkvision"
+			},
+			{
+				"name": "Detect Thoughts",
+				"url": "/api/spells/detect-thoughts"
+			},
+			{
+				"name": "Enhance Ability",
+				"url": "/api/spells/enhance-ability"
+			},
+			{
+				"name": "Enlarge/Reduce",
+				"url": "/api/spells/enlarge-reduce"
+			},
+			{
+				"name": "Gust of Wind",
+				"url": "/api/spells/gust-of-wind"
+			},
+			{
+				"name": "Hold Person",
+				"url": "/api/spells/hold-person"
+			},
+			{
+				"name": "Invisibility",
+				"url": "/api/spells/invisibility"
+			},
+			{
+				"name": "Knock",
+				"url": "/api/spells/knock"
+			},
+			{
+				"name": "Levitate",
+				"url": "/api/spells/levitate"
+			},
+			{
+				"name": "Mirror Image",
+				"url": "/api/spells/mirror-image"
+			},
+			{
+				"name": "Misty Step",
+				"url": "/api/spells/misty-step"
+			},
+			{
+				"name": "Scorching Ray",
+				"url": "/api/spells/scorching-ray"
+			},
+			{
+				"name": "See Invisibility",
+				"url": "/api/spells/see-invisibility"
+			},
+			{
+				"name": "Shatter",
+				"url": "/api/spells/shatter"
+			},
+			{
+				"name": "Spider Climb",
+				"url": "/api/spells/spider-climb"
+			},
+			{
+				"name": "Suggestion",
+				"url": "/api/spells/suggestion"
+			},
+			{
+				"name": "Web",
+				"url": "/api/spells/web"
+			}
+		],
+		"3": [
+			{
+				"name": "Blink",
+				"url": "/api/spells/blink"
+			},
+			{
+				"name": "Clairvoyance",
+				"url": "/api/spells/clairvoyance"
+			},
+			{
+				"name": "Counterspell",
+				"url": "/api/spells/counterspell"
+			},
+			{
+				"name": "Daylight",
+				"url": "/api/spells/daylight"
+			},
+			{
+				"name": "Dispel Magic",
+				"url": "/api/spells/dispel-magic"
+			},
+			{
+				"name": "Fear",
+				"url": "/api/spells/fear"
+			},
+			{
+				"name": "Fireball",
+				"url": "/api/spells/fireball"
+			},
+			{
+				"name": "Fly",
+				"url": "/api/spells/fly"
+			},
+			{
+				"name": "Gaseous Form",
+				"url": "/api/spells/gaseous-form"
+			},
+			{
+				"name": "Haste",
+				"url": "/api/spells/haste"
+			},
+			{
+				"name": "Hypnotic Pattern",
+				"url": "/api/spells/hypnotic-pattern"
+			},
+			{
+				"name": "Lightning Bolt",
+				"url": "/api/spells/lightning-bolt"
+			},
+			{
+				"name": "Major Image",
+				"url": "/api/spells/major-image"
+			},
+			{
+				"name": "Protection from Energy",
+				"url": "/api/spells/protection-from-energy"
+			},
+			{
+				"name": "Sleet Storm",
+				"url": "/api/spells/sleet-storm"
+			},
+			{
+				"name": "Slow",
+				"url": "/api/spells/slow"
+			},
+			{
+				"name": "Stinking Cloud",
+				"url": "/api/spells/stinking-cloud"
+			},
+			{
+				"name": "Tongues",
+				"url": "/api/spells/tongues"
+			},
+			{
+				"name": "Water Breathing",
+				"url": "/api/spells/water-breathing"
+			},
+			{
+				"name": "Water Walk",
+				"url": "/api/spells/water-walk"
+			}
+		],
+		"4": [
+			{
+				"name": "Banishment",
+				"url": "/api/spells/banishment"
+			},
+			{
+				"name": "Blight",
+				"url": "/api/spells/blight"
+			},
+			{
+				"name": "Confusion",
+				"url": "/api/spells/confusion"
+			},
+			{
+				"name": "Dimension Door",
+				"url": "/api/spells/dimension-door"
+			},
+			{
+				"name": "Dominate Beast",
+				"url": "/api/spells/dominate-beast"
+			},
+			{
+				"name": "Greater Invisibility",
+				"url": "/api/spells/greater-invisibility"
+			},
+			{
+				"name": "Ice Storm",
+				"url": "/api/spells/ice-storm"
+			},
+			{
+				"name": "Polymorph",
+				"url": "/api/spells/polymorph"
+			},
+			{
+				"name": "Stoneskin",
+				"url": "/api/spells/stoneskin"
+			},
+			{
+				"name": "Wall of Fire",
+				"url": "/api/spells/wall-of-fire"
+			}
+		],
+		"5": [
+			{
+				"name": "Animate Objects",
+				"url": "/api/spells/animate-objects"
+			},
+			{
+				"name": "Cloudkill",
+				"url": "/api/spells/cloudkill"
+			},
+			{
+				"name": "Cone of Cold",
+				"url": "/api/spells/cone-of-cold"
+			},
+			{
+				"name": "Creation",
+				"url": "/api/spells/creation"
+			},
+			{
+				"name": "Dominate Person",
+				"url": "/api/spells/dominate-person"
+			},
+			{
+				"name": "Hold Monster",
+				"url": "/api/spells/hold-monster"
+			},
+			{
+				"name": "Insect Plague",
+				"url": "/api/spells/insect-plague"
+			},
+			{
+				"name": "Seeming",
+				"url": "/api/spells/seeming"
+			},
+			{
+				"name": "Telekinesis",
+				"url": "/api/spells/telekinesis"
+			},
+			{
+				"name": "Teleportation Circle",
+				"url": "/api/spells/teleportation-circle"
+			},
+			{
+				"name": "Wall of Stone",
+				"url": "/api/spells/wall-of-stone"
+			}
+		],
+		"6": [
+			{
+				"name": "Chain Lightning",
+				"url": "/api/spells/chain-lightning"
+			},
+			{
+				"name": "Circle of Death",
+				"url": "/api/spells/circle-of-death"
+			},
+			{
+				"name": "Disintegrate",
+				"url": "/api/spells/disintegrate"
+			},
+			{
+				"name": "Eyebite",
+				"url": "/api/spells/eyebite"
+			},
+			{
+				"name": "Globe of Invulnerability",
+				"url": "/api/spells/globe-of-invulnerability"
+			},
+			{
+				"name": "Mass Suggestion",
+				"url": "/api/spells/mass-suggestion"
+			},
+			{
+				"name": "Move Earth",
+				"url": "/api/spells/move-earth"
+			},
+			{
+				"name": "Sunbeam",
+				"url": "/api/spells/sunbeam"
+			},
+			{
+				"name": "True Seeing",
+				"url": "/api/spells/true-seeing"
+			}
+		],
+		"7": [
+			{
+				"name": "Delayed Blast Fireball",
+				"url": "/api/spells/delayed-blast-fireball"
+			},
+			{
+				"name": "Etherealness",
+				"url": "/api/spells/etherealness"
+			},
+			{
+				"name": "Finger of Death",
+				"url": "/api/spells/finger-of-death"
+			},
+			{
+				"name": "Fire Storm",
+				"url": "/api/spells/fire-storm"
+			},
+			{
+				"name": "Plane Shift",
+				"url": "/api/spells/plane-shift"
+			},
+			{
+				"name": "Prismatic Spray",
+				"url": "/api/spells/prismatic-spray"
+			},
+			{
+				"name": "Reverse Gravity",
+				"url": "/api/spells/reverse-gravity"
+			},
+			{
+				"name": "Teleport",
+				"url": "/api/spells/teleport"
+			}
+		],
+		"8": [
+			{
+				"name": "Dominate Monster",
+				"url": "/api/spells/dominate-monster"
+			},
+			{
+				"name": "Earthquake",
+				"url": "/api/spells/earthquake"
+			},
+			{
+				"name": "Incendiary Cloud",
+				"url": "/api/spells/incendiary-cloud"
+			},
+			{
+				"name": "Power Word Stun",
+				"url": "/api/spells/power-word-stun"
+			},
+			{
+				"name": "Sunburst",
+				"url": "/api/spells/sunburst"
+			}
+		],
+		"9": [
+			{
+				"name": "Gate",
+				"url": "/api/spells/gate"
+			},
+			{
+				"name": "Meteor Swarm",
+				"url": "/api/spells/meteor-swarm"
+			},
+			{
+				"name": "Power Word Kill",
+				"url": "/api/spells/power-word-kill"
+			},
+			{
+				"name": "Time Stop",
+				"url": "/api/spells/time-stop"
+			},
+			{
+				"name": "Wish",
+				"url": "/api/spells/wish"
+			}
+		]
+	},
+	"Warlock": {
+		"0": [
+			{
+				"name": "Chill Touch",
+				"url": "/api/spells/chill-touch"
+			},
+			{
+				"name": "Eldritch Blast",
+				"url": "/api/spells/eldritch-blast"
+			},
+			{
+				"name": "Mage Hand",
+				"url": "/api/spells/mage-hand"
+			},
+			{
+				"name": "Minor Illusion",
+				"url": "/api/spells/minor-illusion"
+			},
+			{
+				"name": "Poison Spray",
+				"url": "/api/spells/poison-spray"
+			},
+			{
+				"name": "Prestidigitation",
+				"url": "/api/spells/prestidigitation"
+			},
+			{
+				"name": "True Strike",
+				"url": "/api/spells/true-strike"
+			}
+		],
+		"1": [
+			{
+				"name": "Charm Person",
+				"url": "/api/spells/charm-person"
+			},
+			{
+				"name": "Comprehend Languages",
+				"url": "/api/spells/comprehend-languages"
+			},
+			{
+				"name": "Expeditious Retreat",
+				"url": "/api/spells/expeditious-retreat"
+			},
+			{
+				"name": "Hellish Rebuke",
+				"url": "/api/spells/hellish-rebuke"
+			},
+			{
+				"name": "Illusory Script",
+				"url": "/api/spells/illusory-script"
+			},
+			{
+				"name": "Protection from Evil and Good",
+				"url": "/api/spells/protection-from-evil-and-good"
+			},
+			{
+				"name": "Unseen Servant",
+				"url": "/api/spells/unseen-servant"
+			}
+		],
+		"2": [
+			{
+				"name": "Darkness",
+				"url": "/api/spells/darkness"
+			},
+			{
+				"name": "Enthrall",
+				"url": "/api/spells/enthrall"
+			},
+			{
+				"name": "Hold Person",
+				"url": "/api/spells/hold-person"
+			},
+			{
+				"name": "Invisibility",
+				"url": "/api/spells/invisibility"
+			},
+			{
+				"name": "Mirror Image",
+				"url": "/api/spells/mirror-image"
+			},
+			{
+				"name": "Misty Step",
+				"url": "/api/spells/misty-step"
+			},
+			{
+				"name": "Ray of Enfeeblement",
+				"url": "/api/spells/ray-of-enfeeblement"
+			},
+			{
+				"name": "Shatter",
+				"url": "/api/spells/shatter"
+			},
+			{
+				"name": "Spider Climb",
+				"url": "/api/spells/spider-climb"
+			},
+			{
+				"name": "Suggestion",
+				"url": "/api/spells/suggestion"
+			}
+		],
+		"3": [
+			{
+				"name": "Counterspell",
+				"url": "/api/spells/counterspell"
+			},
+			{
+				"name": "Dispel Magic",
+				"url": "/api/spells/dispel-magic"
+			},
+			{
+				"name": "Fear",
+				"url": "/api/spells/fear"
+			},
+			{
+				"name": "Fly",
+				"url": "/api/spells/fly"
+			},
+			{
+				"name": "Gaseous Form",
+				"url": "/api/spells/gaseous-form"
+			},
+			{
+				"name": "Hypnotic Pattern",
+				"url": "/api/spells/hypnotic-pattern"
+			},
+			{
+				"name": "Magic Circle",
+				"url": "/api/spells/magic-circle"
+			},
+			{
+				"name": "Major Image",
+				"url": "/api/spells/major-image"
+			},
+			{
+				"name": "Remove Curse",
+				"url": "/api/spells/remove-curse"
+			},
+			{
+				"name": "Tongues",
+				"url": "/api/spells/tongues"
+			},
+			{
+				"name": "Vampiric Touch",
+				"url": "/api/spells/vampiric-touch"
+			}
+		],
+		"4": [
+			{
+				"name": "Banishment",
+				"url": "/api/spells/banishment"
+			},
+			{
+				"name": "Blight",
+				"url": "/api/spells/blight"
+			},
+			{
+				"name": "Dimension Door",
+				"url": "/api/spells/dimension-door"
+			},
+			{
+				"name": "Hallucinatory Terrain",
+				"url": "/api/spells/hallucinatory-terrain"
+			}
+		],
+		"5": [
+			{
+				"name": "Contact Other Plane",
+				"url": "/api/spells/contact-other-plane"
+			},
+			{
+				"name": "Dream",
+				"url": "/api/spells/dream"
+			},
+			{
+				"name": "Hold Monster",
+				"url": "/api/spells/hold-monster"
+			},
+			{
+				"name": "Scrying",
+				"url": "/api/spells/scrying"
+			}
+		],
+		"6": [
+			{
+				"name": "Circle of Death",
+				"url": "/api/spells/circle-of-death"
+			},
+			{
+				"name": "Conjure Fey",
+				"url": "/api/spells/conjure-fey"
+			},
+			{
+				"name": "Create Undead",
+				"url": "/api/spells/create-undead"
+			},
+			{
+				"name": "Eyebite",
+				"url": "/api/spells/eyebite"
+			},
+			{
+				"name": "Flesh to Stone",
+				"url": "/api/spells/flesh-to-stone"
+			},
+			{
+				"name": "Mass Suggestion",
+				"url": "/api/spells/mass-suggestion"
+			},
+			{
+				"name": "True Seeing",
+				"url": "/api/spells/true-seeing"
+			}
+		],
+		"7": [
+			{
+				"name": "Etherealness",
+				"url": "/api/spells/etherealness"
+			},
+			{
+				"name": "Finger of Death",
+				"url": "/api/spells/finger-of-death"
+			},
+			{
+				"name": "Forcecage",
+				"url": "/api/spells/forcecage"
+			},
+			{
+				"name": "Plane Shift",
+				"url": "/api/spells/plane-shift"
+			}
+		],
+		"8": [
+			{
+				"name": "Demiplane",
+				"url": "/api/spells/demiplane"
+			},
+			{
+				"name": "Dominate Monster",
+				"url": "/api/spells/dominate-monster"
+			},
+			{
+				"name": "Feeblemind",
+				"url": "/api/spells/feeblemind"
+			},
+			{
+				"name": "Glibness",
+				"url": "/api/spells/glibness"
+			},
+			{
+				"name": "Power Word Stun",
+				"url": "/api/spells/power-word-stun"
+			}
+		],
+		"9": [
+			{
+				"name": "Astral Projection",
+				"url": "/api/spells/astral-projection"
+			},
+			{
+				"name": "Foresight",
+				"url": "/api/spells/foresight"
+			},
+			{
+				"name": "Imprisonment",
+				"url": "/api/spells/imprisonment"
+			},
+			{
+				"name": "Power Word Kill",
+				"url": "/api/spells/power-word-kill"
+			},
+			{
+				"name": "True Polymorph",
+				"url": "/api/spells/true-polymorph"
+			}
+		]
+	},
+	"Wizard": {
+		"0": [
+			{
+				"name": "Acid Splash",
+				"url": "/api/spells/acid-splash"
+			},
+			{
+				"name": "Chill Touch",
+				"url": "/api/spells/chill-touch"
+			},
+			{
+				"name": "Dancing Lights",
+				"url": "/api/spells/dancing-lights"
+			},
+			{
+				"name": "Fire Bolt",
+				"url": "/api/spells/fire-bolt"
+			},
+			{
+				"name": "Light",
+				"url": "/api/spells/light"
+			},
+			{
+				"name": "Mage Hand",
+				"url": "/api/spells/mage-hand"
+			},
+			{
+				"name": "Mending",
+				"url": "/api/spells/mending"
+			},
+			{
+				"name": "Message",
+				"url": "/api/spells/message"
+			},
+			{
+				"name": "Minor Illusion",
+				"url": "/api/spells/minor-illusion"
+			},
+			{
+				"name": "Poison Spray",
+				"url": "/api/spells/poison-spray"
+			},
+			{
+				"name": "Prestidigitation",
+				"url": "/api/spells/prestidigitation"
+			},
+			{
+				"name": "Ray of Frost",
+				"url": "/api/spells/ray-of-frost"
+			},
+			{
+				"name": "Shocking Grasp",
+				"url": "/api/spells/shocking-grasp"
+			},
+			{
+				"name": "True Strike",
+				"url": "/api/spells/true-strike"
+			}
+		],
+		"1": [
+			{
+				"name": "Alarm",
+				"url": "/api/spells/alarm"
+			},
+			{
+				"name": "Burning Hands",
+				"url": "/api/spells/burning-hands"
+			},
+			{
+				"name": "Charm Person",
+				"url": "/api/spells/charm-person"
+			},
+			{
+				"name": "Color Spray",
+				"url": "/api/spells/color-spray"
+			},
+			{
+				"name": "Comprehend Languages",
+				"url": "/api/spells/comprehend-languages"
+			},
+			{
+				"name": "Detect Magic",
+				"url": "/api/spells/detect-magic"
+			},
+			{
+				"name": "Disguise Self",
+				"url": "/api/spells/disguise-self"
+			},
+			{
+				"name": "Expeditious Retreat",
+				"url": "/api/spells/expeditious-retreat"
+			},
+			{
+				"name": "False Life",
+				"url": "/api/spells/false-life"
+			},
+			{
+				"name": "Feather Fall",
+				"url": "/api/spells/feather-fall"
+			},
+			{
+				"name": "Find Familiar",
+				"url": "/api/spells/find-familiar"
+			},
+			{
+				"name": "Floating Disk",
+				"url": "/api/spells/floating-disk"
+			},
+			{
+				"name": "Fog Cloud",
+				"url": "/api/spells/fog-cloud"
+			},
+			{
+				"name": "Grease",
+				"url": "/api/spells/grease"
+			},
+			{
+				"name": "Hideous Laughter",
+				"url": "/api/spells/hideous-laughter"
+			},
+			{
+				"name": "Identify",
+				"url": "/api/spells/identify"
+			},
+			{
+				"name": "Illusory Script",
+				"url": "/api/spells/illusory-script"
+			},
+			{
+				"name": "Jump",
+				"url": "/api/spells/jump"
+			},
+			{
+				"name": "Longstrider",
+				"url": "/api/spells/longstrider"
+			},
+			{
+				"name": "Mage Armor",
+				"url": "/api/spells/mage-armor"
+			},
+			{
+				"name": "Magic Missile",
+				"url": "/api/spells/magic-missile"
+			},
+			{
+				"name": "Protection from Evil and Good",
+				"url": "/api/spells/protection-from-evil-and-good"
+			},
+			{
+				"name": "Shield",
+				"url": "/api/spells/shield"
+			},
+			{
+				"name": "Silent Image",
+				"url": "/api/spells/silent-image"
+			},
+			{
+				"name": "Sleep",
+				"url": "/api/spells/sleep"
+			},
+			{
+				"name": "Thunderwave",
+				"url": "/api/spells/thunderwave"
+			},
+			{
+				"name": "Unseen Servant",
+				"url": "/api/spells/unseen-servant"
+			}
+		],
+		"2": [
+			{
+				"name": "Acid Arrow",
+				"url": "/api/spells/acid-arrow"
+			},
+			{
+				"name": "Alter Self",
+				"url": "/api/spells/alter-self"
+			},
+			{
+				"name": "Arcane Lock",
+				"url": "/api/spells/arcane-lock"
+			},
+			{
+				"name": "Arcanist's Magic Aura",
+				"url": "/api/spells/arcanists-magic-aura"
+			},
+			{
+				"name": "Blindness/Deafness",
+				"url": "/api/spells/blindness-deafness"
+			},
+			{
+				"name": "Blur",
+				"url": "/api/spells/blur"
+			},
+			{
+				"name": "Continual Flame",
+				"url": "/api/spells/continual-flame"
+			},
+			{
+				"name": "Darkness",
+				"url": "/api/spells/darkness"
+			},
+			{
+				"name": "Darkvision",
+				"url": "/api/spells/darkvision"
+			},
+			{
+				"name": "Detect Thoughts",
+				"url": "/api/spells/detect-thoughts"
+			},
+			{
+				"name": "Enlarge/Reduce",
+				"url": "/api/spells/enlarge-reduce"
+			},
+			{
+				"name": "Flaming Sphere",
+				"url": "/api/spells/flaming-sphere"
+			},
+			{
+				"name": "Gentle Repose",
+				"url": "/api/spells/gentle-repose"
+			},
+			{
+				"name": "Gust of Wind",
+				"url": "/api/spells/gust-of-wind"
+			},
+			{
+				"name": "Hold Person",
+				"url": "/api/spells/hold-person"
+			},
+			{
+				"name": "Invisibility",
+				"url": "/api/spells/invisibility"
+			},
+			{
+				"name": "Knock",
+				"url": "/api/spells/knock"
+			},
+			{
+				"name": "Levitate",
+				"url": "/api/spells/levitate"
+			},
+			{
+				"name": "Locate Object",
+				"url": "/api/spells/locate-object"
+			},
+			{
+				"name": "Magic Mouth",
+				"url": "/api/spells/magic-mouth"
+			},
+			{
+				"name": "Magic Weapon",
+				"url": "/api/spells/magic-weapon"
+			},
+			{
+				"name": "Mirror Image",
+				"url": "/api/spells/mirror-image"
+			},
+			{
+				"name": "Misty Step",
+				"url": "/api/spells/misty-step"
+			},
+			{
+				"name": "Ray of Enfeeblement",
+				"url": "/api/spells/ray-of-enfeeblement"
+			},
+			{
+				"name": "Rope Trick",
+				"url": "/api/spells/rope-trick"
+			},
+			{
+				"name": "Scorching Ray",
+				"url": "/api/spells/scorching-ray"
+			},
+			{
+				"name": "See Invisibility",
+				"url": "/api/spells/see-invisibility"
+			},
+			{
+				"name": "Shatter",
+				"url": "/api/spells/shatter"
+			},
+			{
+				"name": "Spider Climb",
+				"url": "/api/spells/spider-climb"
+			},
+			{
+				"name": "Suggestion",
+				"url": "/api/spells/suggestion"
+			},
+			{
+				"name": "Web",
+				"url": "/api/spells/web"
+			}
+		],
+		"3": [
+			{
+				"name": "Animate Dead",
+				"url": "/api/spells/animate-dead"
+			},
+			{
+				"name": "Bestow Curse",
+				"url": "/api/spells/bestow-curse"
+			},
+			{
+				"name": "Blink",
+				"url": "/api/spells/blink"
+			},
+			{
+				"name": "Clairvoyance",
+				"url": "/api/spells/clairvoyance"
+			},
+			{
+				"name": "Counterspell",
+				"url": "/api/spells/counterspell"
+			},
+			{
+				"name": "Dispel Magic",
+				"url": "/api/spells/dispel-magic"
+			},
+			{
+				"name": "Fear",
+				"url": "/api/spells/fear"
+			},
+			{
+				"name": "Fireball",
+				"url": "/api/spells/fireball"
+			},
+			{
+				"name": "Fly",
+				"url": "/api/spells/fly"
+			},
+			{
+				"name": "Gaseous Form",
+				"url": "/api/spells/gaseous-form"
+			},
+			{
+				"name": "Glyph of Warding",
+				"url": "/api/spells/glyph-of-warding"
+			},
+			{
+				"name": "Haste",
+				"url": "/api/spells/haste"
+			},
+			{
+				"name": "Hypnotic Pattern",
+				"url": "/api/spells/hypnotic-pattern"
+			},
+			{
+				"name": "Lightning Bolt",
+				"url": "/api/spells/lightning-bolt"
+			},
+			{
+				"name": "Magic Circle",
+				"url": "/api/spells/magic-circle"
+			},
+			{
+				"name": "Major Image",
+				"url": "/api/spells/major-image"
+			},
+			{
+				"name": "Nondetection",
+				"url": "/api/spells/nondetection"
+			},
+			{
+				"name": "Phantom Steed",
+				"url": "/api/spells/phantom-steed"
+			},
+			{
+				"name": "Protection from Energy",
+				"url": "/api/spells/protection-from-energy"
+			},
+			{
+				"name": "Remove Curse",
+				"url": "/api/spells/remove-curse"
+			},
+			{
+				"name": "Sending",
+				"url": "/api/spells/sending"
+			},
+			{
+				"name": "Sleet Storm",
+				"url": "/api/spells/sleet-storm"
+			},
+			{
+				"name": "Slow",
+				"url": "/api/spells/slow"
+			},
+			{
+				"name": "Stinking Cloud",
+				"url": "/api/spells/stinking-cloud"
+			},
+			{
+				"name": "Tiny Hut",
+				"url": "/api/spells/tiny-hut"
+			},
+			{
+				"name": "Tongues",
+				"url": "/api/spells/tongues"
+			},
+			{
+				"name": "Vampiric Touch",
+				"url": "/api/spells/vampiric-touch"
+			},
+			{
+				"name": "Water Breathing",
+				"url": "/api/spells/water-breathing"
+			}
+		],
+		"4": [
+			{
+				"name": "Arcane Eye",
+				"url": "/api/spells/arcane-eye"
+			},
+			{
+				"name": "Banishment",
+				"url": "/api/spells/banishment"
+			},
+			{
+				"name": "Black Tentacles",
+				"url": "/api/spells/black-tentacles"
+			},
+			{
+				"name": "Blight",
+				"url": "/api/spells/blight"
+			},
+			{
+				"name": "Confusion",
+				"url": "/api/spells/confusion"
+			},
+			{
+				"name": "Conjure Minor Elementals",
+				"url": "/api/spells/conjure-minor-elementals"
+			},
+			{
+				"name": "Control Water",
+				"url": "/api/spells/control-water"
+			},
+			{
+				"name": "Dimension Door",
+				"url": "/api/spells/dimension-door"
+			},
+			{
+				"name": "Fabricate",
+				"url": "/api/spells/fabricate"
+			},
+			{
+				"name": "Faithful Hound",
+				"url": "/api/spells/faithful-hound"
+			},
+			{
+				"name": "Fire Shield",
+				"url": "/api/spells/fire-shield"
+			},
+			{
+				"name": "Greater Invisibility",
+				"url": "/api/spells/greater-invisibility"
+			},
+			{
+				"name": "Hallucinatory Terrain",
+				"url": "/api/spells/hallucinatory-terrain"
+			},
+			{
+				"name": "Ice Storm",
+				"url": "/api/spells/ice-storm"
+			},
+			{
+				"name": "Locate Creature",
+				"url": "/api/spells/locate-creature"
+			},
+			{
+				"name": "Phantasmal Killer",
+				"url": "/api/spells/phantasmal-killer"
+			},
+			{
+				"name": "Polymorph",
+				"url": "/api/spells/polymorph"
+			},
+			{
+				"name": "Private Sanctum",
+				"url": "/api/spells/private-sanctum"
+			},
+			{
+				"name": "Resilient Sphere",
+				"url": "/api/spells/resilient-sphere"
+			},
+			{
+				"name": "Secret Chest",
+				"url": "/api/spells/secret-chest"
+			},
+			{
+				"name": "Stone Shape",
+				"url": "/api/spells/stone-shape"
+			},
+			{
+				"name": "Stoneskin",
+				"url": "/api/spells/stoneskin"
+			},
+			{
+				"name": "Wall of Fire",
+				"url": "/api/spells/wall-of-fire"
+			}
+		],
+		"5": [
+			{
+				"name": "Animate Objects",
+				"url": "/api/spells/animate-objects"
+			},
+			{
+				"name": "Arcane Hand",
+				"url": "/api/spells/arcane-hand"
+			},
+			{
+				"name": "Cloudkill",
+				"url": "/api/spells/cloudkill"
+			},
+			{
+				"name": "Cone of Cold",
+				"url": "/api/spells/cone-of-cold"
+			},
+			{
+				"name": "Conjure Elemental",
+				"url": "/api/spells/conjure-elemental"
+			},
+			{
+				"name": "Contact Other Plane",
+				"url": "/api/spells/contact-other-plane"
+			},
+			{
+				"name": "Creation",
+				"url": "/api/spells/creation"
+			},
+			{
+				"name": "Dominate Person",
+				"url": "/api/spells/dominate-person"
+			},
+			{
+				"name": "Dream",
+				"url": "/api/spells/dream"
+			},
+			{
+				"name": "Geas",
+				"url": "/api/spells/geas"
+			},
+			{
+				"name": "Hold Monster",
+				"url": "/api/spells/hold-monster"
+			},
+			{
+				"name": "Legend Lore",
+				"url": "/api/spells/legend-lore"
+			},
+			{
+				"name": "Mislead",
+				"url": "/api/spells/mislead"
+			},
+			{
+				"name": "Modify Memory",
+				"url": "/api/spells/modify-memory"
+			},
+			{
+				"name": "Passwall",
+				"url": "/api/spells/passwall"
+			},
+			{
+				"name": "Planar Binding",
+				"url": "/api/spells/planar-binding"
+			},
+			{
+				"name": "Scrying",
+				"url": "/api/spells/scrying"
+			},
+			{
+				"name": "Seeming",
+				"url": "/api/spells/seeming"
+			},
+			{
+				"name": "Telekinesis",
+				"url": "/api/spells/telekinesis"
+			},
+			{
+				"name": "Telepathic Bond",
+				"url": "/api/spells/telepathic-bond"
+			},
+			{
+				"name": "Teleportation Circle",
+				"url": "/api/spells/teleportation-circle"
+			},
+			{
+				"name": "Wall of Force",
+				"url": "/api/spells/wall-of-force"
+			},
+			{
+				"name": "Wall of Stone",
+				"url": "/api/spells/wall-of-stone"
+			}
+		],
+		"6": [
+			{
+				"name": "Chain Lightning",
+				"url": "/api/spells/chain-lightning"
+			},
+			{
+				"name": "Circle of Death",
+				"url": "/api/spells/circle-of-death"
+			},
+			{
+				"name": "Contingency",
+				"url": "/api/spells/contingency"
+			},
+			{
+				"name": "Create Undead",
+				"url": "/api/spells/create-undead"
+			},
+			{
+				"name": "Disintegrate",
+				"url": "/api/spells/disintegrate"
+			},
+			{
+				"name": "Eyebite",
+				"url": "/api/spells/eyebite"
+			},
+			{
+				"name": "Flesh to Stone",
+				"url": "/api/spells/flesh-to-stone"
+			},
+			{
+				"name": "Freezing Sphere",
+				"url": "/api/spells/freezing-sphere"
+			},
+			{
+				"name": "Globe of Invulnerability",
+				"url": "/api/spells/globe-of-invulnerability"
+			},
+			{
+				"name": "Guards and Wards",
+				"url": "/api/spells/guards-and-wards"
+			},
+			{
+				"name": "Instant Summons",
+				"url": "/api/spells/instant-summons"
+			},
+			{
+				"name": "Irresistible Dance",
+				"url": "/api/spells/irresistible-dance"
+			},
+			{
+				"name": "Magic Jar",
+				"url": "/api/spells/magic-jar"
+			},
+			{
+				"name": "Mass Suggestion",
+				"url": "/api/spells/mass-suggestion"
+			},
+			{
+				"name": "Move Earth",
+				"url": "/api/spells/move-earth"
+			},
+			{
+				"name": "Programmed Illusion",
+				"url": "/api/spells/programmed-illusion"
+			},
+			{
+				"name": "Sunbeam",
+				"url": "/api/spells/sunbeam"
+			},
+			{
+				"name": "True Seeing",
+				"url": "/api/spells/true-seeing"
+			},
+			{
+				"name": "Wall of Ice",
+				"url": "/api/spells/wall-of-ice"
+			}
+		],
+		"7": [
+			{
+				"name": "Arcane Sword",
+				"url": "/api/spells/arcane-sword"
+			},
+			{
+				"name": "Delayed Blast Fireball",
+				"url": "/api/spells/delayed-blast-fireball"
+			},
+			{
+				"name": "Etherealness",
+				"url": "/api/spells/etherealness"
+			},
+			{
+				"name": "Finger of Death",
+				"url": "/api/spells/finger-of-death"
+			},
+			{
+				"name": "Forcecage",
+				"url": "/api/spells/forcecage"
+			},
+			{
+				"name": "Magnificent Mansion",
+				"url": "/api/spells/magnificent-mansion"
+			},
+			{
+				"name": "Mirage Arcane",
+				"url": "/api/spells/mirage-arcane"
+			},
+			{
+				"name": "Plane Shift",
+				"url": "/api/spells/plane-shift"
+			},
+			{
+				"name": "Prismatic Spray",
+				"url": "/api/spells/prismatic-spray"
+			},
+			{
+				"name": "Project Image",
+				"url": "/api/spells/project-image"
+			},
+			{
+				"name": "Reverse Gravity",
+				"url": "/api/spells/reverse-gravity"
+			},
+			{
+				"name": "Sequester",
+				"url": "/api/spells/sequester"
+			},
+			{
+				"name": "Simulacrum",
+				"url": "/api/spells/simulacrum"
+			},
+			{
+				"name": "Symbol",
+				"url": "/api/spells/symbol"
+			},
+			{
+				"name": "Teleport",
+				"url": "/api/spells/teleport"
+			}
+		],
+		"8": [
+			{
+				"name": "Antimagic Field",
+				"url": "/api/spells/antimagic-field"
+			},
+			{
+				"name": "Antipathy/Sympathy",
+				"url": "/api/spells/antipathy-sympathy"
+			},
+			{
+				"name": "Clone",
+				"url": "/api/spells/clone"
+			},
+			{
+				"name": "Control Weather",
+				"url": "/api/spells/control-weather"
+			},
+			{
+				"name": "Demiplane",
+				"url": "/api/spells/demiplane"
+			},
+			{
+				"name": "Dominate Monster",
+				"url": "/api/spells/dominate-monster"
+			},
+			{
+				"name": "Feeblemind",
+				"url": "/api/spells/feeblemind"
+			},
+			{
+				"name": "Incendiary Cloud",
+				"url": "/api/spells/incendiary-cloud"
+			},
+			{
+				"name": "Maze",
+				"url": "/api/spells/maze"
+			},
+			{
+				"name": "Mind Blank",
+				"url": "/api/spells/mind-blank"
+			},
+			{
+				"name": "Power Word Stun",
+				"url": "/api/spells/power-word-stun"
+			},
+			{
+				"name": "Sunburst",
+				"url": "/api/spells/sunburst"
+			}
+		],
+		"9": [
+			{
+				"name": "Astral Projection",
+				"url": "/api/spells/astral-projection"
+			},
+			{
+				"name": "Foresight",
+				"url": "/api/spells/foresight"
+			},
+			{
+				"name": "Gate",
+				"url": "/api/spells/gate"
+			},
+			{
+				"name": "Imprisonment",
+				"url": "/api/spells/imprisonment"
+			},
+			{
+				"name": "Meteor Swarm",
+				"url": "/api/spells/meteor-swarm"
+			},
+			{
+				"name": "Power Word Kill",
+				"url": "/api/spells/power-word-kill"
+			},
+			{
+				"name": "Prismatic Wall",
+				"url": "/api/spells/prismatic-wall"
+			},
+			{
+				"name": "Shapechange",
+				"url": "/api/spells/shapechange"
+			},
+			{
+				"name": "Time Stop",
+				"url": "/api/spells/time-stop"
+			},
+			{
+				"name": "True Polymorph",
+				"url": "/api/spells/true-polymorph"
+			},
+			{
+				"name": "Weird",
+				"url": "/api/spells/weird"
+			},
+			{
+				"name": "Wish",
+				"url": "/api/spells/wish"
+			}
+		]
+	}
+}
