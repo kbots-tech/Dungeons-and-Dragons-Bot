@@ -45,10 +45,16 @@ class help(commands.Cog, name='help'):
             value='Use this command to get info about a monster or creature, if args is included it will give info about that creature otherwise it will list all creatures.\n _Aliases:_ `>monster`, `>mo`, `>m`\neg: `>monster aboleth`',
         )
         embed.add_field(
+            name='`search [args]`',
+            value='This comamnd can be used to search any item included in the above commands. It will return the first best match for optimal results you can narrow down your search by using the related command.\neg:`>search fireball`',
+            inline=False
+        )
+        embed.add_field(
             name='`>character`',
             value='The creme de la creme of this bots commands, this command will walk you through the steps and generate a prefilled editable character sheet. Currently this is only for level 1 characters but planning is in place for a more advanced version.\n _Aliases:_ `>sheet`, `>cs`',
             inline=False
         )
+
         
         embed.add_field(name='Links',value="[Bot Invite](https://discord.com/oauth2/authorize?client_id=755592938922442782&permissions=10304&scope=bot) , [Support Server](https://discord.com/invite/wV5YdX94h4), [Github Repo](https://github.com/mcurranseijo/dnd-bot)")
         
