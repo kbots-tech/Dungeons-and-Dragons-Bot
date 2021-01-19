@@ -28,8 +28,18 @@ class help(commands.Cog, name='help'):
             inline=False)
         embed.add_field(
             name='`>equipment [args]`',
-            value='Use this command to get info about D&D equipment, if args is included it will give info about that equipment otherwise it will list all equipment. This includes armor, weapons, and other objects.\n _Aliases:_ `>equipment`,`>e`,`>armor`,`>weapon`\neg: `>equipment abacus`',
+            value='You can use this equipment to search through all items, this includes, tools, adventuring gear, armor, weapons etc. If no args are given it will list all items (sorted by category)\n_Aliases:_ `>e`\neg: `>equipment abacus`',
             inline=False)
+        embed.add_field(
+            name='`>armor [args]`',
+            value='This command works the same as the equipment command but only returns and lists armor.\n_Aliases:_ `>a`, `>armor`',
+            inline=False
+        )
+        embed.add_field(
+            name='`>weapons [args]`',
+            value='This command works the same as the equipment command but only returns and lists armor.\n_Aliases:_ `>w`, `>weapon`',
+            inline=False
+        )
         embed.add_field(
             name='`>monster [args]`',
             value='Use this command to get info about a monster or creature, if args is included it will give info about that creature otherwise it will list all creatures.\n _Aliases:_ `>monster`, `>mo`, `>m`\neg: `>monster aboleth`',

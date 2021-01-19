@@ -41,7 +41,6 @@ class Equipment(commands.Cog):
                     embed.add_field(name=category, value='_ _', inline=False)
                     for item in self.items[category]['items']:
                         count+=1
-                        print(f"{category}, {len(field)}")
                         if count == per:
                             count = 0
                             embed.add_field(name="_ _", value=field)
@@ -71,7 +70,7 @@ class Equipment(commands.Cog):
                     value=f"{data['cost']['quantity']}{data['cost']['unit']}",
                     inline=True
                 )
-                print(data['armor_class']['dex_bonus'])
+
                 if data['armor_class']['dex_bonus']:
                     dex = "+ DEX"
                 else:
@@ -135,7 +134,7 @@ class Equipment(commands.Cog):
                 embed.add_field(name="_ _", value="_ _", inline=False)
             elif data['equipment_category']['name'] == "Tools":
                 if 'desc' in data:
-                    embed.description += f"\n{data['desc'][0]}"
+                    embed.description = f"\n{data['desc'][0]}"
 
                 embed.add_field(
                     name='Cost',
@@ -197,6 +196,91 @@ class Equipment(commands.Cog):
         except IndexError:
             await ctx.send(
                 embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
+
+    @commands.command(aliases=['w','weapon'])
+    async def weapons(self, ctx, *, args=None):
+        if not args:
+            embed = discord.Embed(title='D&D Equipment', description=f"{len(self.items['Weapons']['items'])} total items.", color=Color.red())
+            count=0
+            field = ''
+            per = int(len(self.items['Weapons']['items'])/3)+1
+            for item in self.items['Weapons']['items']:
+                count += 1
+                if count == per:
+                    count = 0
+                    embed.add_field(name="_ _", value=field)
+                    field = ""
+                field += f"{item['name']}\n"
+
+            embed.add_field(name="_ _", value=field)
+            field = ""
+
+            await ctx.send(embed=embed)
+            return
+        else:
+            values = get_close_matches(args, [item['name'] for item in self.items['Weapons']['items']])
+            if values:
+                await self.equipment(ctx, args=values[0])
+            else:
+                await ctx.send(
+                    embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
+
+    @commands.command(aliases=['t', 'tool'])
+    async def tools(self, ctx, *, args=None):
+        if not args:
+            embed = discord.Embed(title='D&D Equipment',
+                                  description=f"{len(self.items['Tools']['items'])} total items.", color=Color.red())
+            count = 0
+            field = ''
+            per = int(len(self.items['Tools']['items']) / 3) + 1
+            for item in self.items['Tools']['items']:
+                count += 1
+                if count == per:
+                    count = 0
+                    embed.add_field(name="_ _", value=field)
+                    field = ""
+                field += f"{item['name']}\n"
+
+            embed.add_field(name="_ _", value=field)
+            field = ""
+
+            await ctx.send(embed=embed)
+            return
+        else:
+            values = get_close_matches(args, [item['name'] for item in self.items['Tools']['items']])
+            if values:
+                await self.equipment(ctx, args=values[0])
+            else:
+                await ctx.send(embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
+
+    @commands.command(aliases=['a'])
+    async def armor(self, ctx, *, args=None):
+        if not args:
+            embed = discord.Embed(title='D&D Equipment',
+                                  description=f"{len(self.items['Armor']['items'])} total items.", color=Color.red())
+            count = 0
+            field = ''
+            per = int(len(self.items['Armor']['items']) / 3) + 1
+            for item in self.items['Armor']['items']:
+                count += 1
+                if count == per:
+                    count = 0
+                    embed.add_field(name="_ _", value=field)
+                    field = ""
+                field += f"{item['name']}\n"
+
+            embed.add_field(name="_ _", value=field)
+            field = ""
+
+            await ctx.send(embed=embed)
+            return
+        else:
+            values = get_close_matches(args, [item['name'] for item in self.items['Armor']['items']])
+            if values:
+                await self.equipment(ctx, args=values[0])
+            else:
+                await ctx.send(
+                    embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
 
 def setup(bot):
     bot.add_cog(Equipment(bot))

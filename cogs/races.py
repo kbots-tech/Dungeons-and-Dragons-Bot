@@ -194,6 +194,7 @@ class races(commands.Cog):
                 return
             except IndexError:
                 await ctx.send(embed=discord.Embed(title=f'{args} not found',description='Please Try again.',color=Color.red()))
+                return
   
 def setup(bot):
 	bot.add_cog(races(bot))
