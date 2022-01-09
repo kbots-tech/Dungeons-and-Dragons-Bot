@@ -2,9 +2,11 @@ import discord
 import aiohttp
 import json
 
-from discord.ext import commands
 from discord import Color
 from difflib import get_close_matches
+from discord_slash.utils.manage_commands import create_option, create_choice
+from discord.ext import commands
+from discord_slash import cog_ext
 
 BASE_URL = 'https://www.dnd5eapi.co'
 
@@ -15,10 +17,20 @@ class spells(commands.Cog):
         self.bot = bot
         self.session = aiohttp.ClientSession()
 
-    @commands.command(aliases=['spells', 's'])
-    async def spell(self, ctx, *, args=None):
+    @cog_ext.cog_slash(
+        name="spell",
+        description="Search through and get spell information",
+        options=[
+            create_option(
+                name="name",
+                description="What spell would you like to search for?",
+                option_type=3,
+                required=False,
+            ),
+        ]
+    )
+    async def _spell(self, ctx, name=None):
         try:
-
             async with self.session.get(f'{BASE_URL}/api/spells') as resp:
                 data = json.loads(await resp.text())
             count = data['count']
@@ -26,11 +38,11 @@ class spells(commands.Cog):
             url_list = {}
             for f in classes:
                 url_list[f['name']] = f['url']
-            if args:
-                values = get_close_matches(args, url_list)
-                args = values[0]
+            if name:
+                values = get_close_matches(name, url_list)
+                name = values[0]
 
-            if not args:
+            if not name:
                 embed = discord.Embed(title='D&D Spells', description=f'{count} total spells.', color=Color.red())
 
 
@@ -48,11 +60,11 @@ class spells(commands.Cog):
                 await ctx.send(embed=embed)
                 return
 
-            async with self.session.get(f'{BASE_URL}{url_list[args]}') as resp:
+            async with self.session.get(f'{BASE_URL}{url_list[name]}') as resp:
                 data = json.loads(await resp.text())
 
             embed = discord.Embed(
-                title=args,
+                title=name,
                 description=f"\nLevel {data['level']} {data['school']['name']}",
                 color=Color.red())
 
@@ -104,7 +116,7 @@ class spells(commands.Cog):
             pass
         except IndexError:
             await ctx.send(
-                embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
+                embed=discord.Embed(title=f'{name} not found', description='Please Try again.', color=Color.red()))
 
 
 def setup(bot):

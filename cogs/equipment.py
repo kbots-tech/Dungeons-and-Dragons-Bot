@@ -2,8 +2,10 @@ import discord
 import aiohttp
 import json
 
-from asyncio import TimeoutError
+from discord_slash.utils.manage_commands import create_option, create_choice
 from discord.ext import commands
+from discord_slash import cog_ext
+from ButtonPaginator import Paginator
 from discord import Color
 from difflib import get_close_matches
 
@@ -18,8 +20,19 @@ class Equipment(commands.Cog):
         with open("items.json") as file:
             self.items = json.load(file)
 
-    @commands.command(aliases=['e'])
-    async def equipment(self, ctx, *, args=None):
+    @cog_ext.cog_slash(
+        name="equipment",
+        description="Search through and get equipment information",
+        options=[
+            create_option(
+                name="name",
+                description="What equipment would you like to search for?",
+                option_type=3,
+                required=False,
+            ),
+        ]
+    )
+    async def _equipment(self, ctx, rename=None):
         try:
             async with self.session.get(f'{BASE_URL}/api/equipment') as resp:
                 data = json.loads(await resp.text())
@@ -28,11 +41,11 @@ class Equipment(commands.Cog):
             url_list = {}
             for f in classes:
                 url_list[f['name']] = f['url']
-            if args:
-                values = get_close_matches(args, url_list)
-                args = values[0]
+            if rename:
+                values = get_close_matches(rename, url_list)
+                rename = values[0]
 
-            if not args:
+            if not rename:
                 embed = discord.Embed(title='D&D Equipment', description=f'{count} total items.', color=Color.red())
                 for category in self.items:
                     per = int(len(self.items[category]['items'])/3)+1
@@ -53,7 +66,7 @@ class Equipment(commands.Cog):
                 await ctx.send(embed=embed)
                 return
 
-            async with self.session.get(f'{BASE_URL}{url_list[args]}') as resp:
+            async with self.session.get(f'{BASE_URL}{url_list[rename]}') as resp:
                 data = json.loads(await resp.text())
 
             fields = []
@@ -195,7 +208,7 @@ class Equipment(commands.Cog):
             await ctx.send(embed=embed)
         except IndexError:
             await ctx.send(
-                embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
+                embed=discord.Embed(title=f'{rename} not found', description='Please Try again.', color=Color.red()))
 
     @commands.command(aliases=['w','weapon'])
     async def weapons(self, ctx, *, args=None):
