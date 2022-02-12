@@ -4,6 +4,10 @@ import pdfrw
 import asyncio
 from discord.ext import commands
 from math import floor
+from discord_slash import cog_ext, SlashContext, ComponentContext
+from discord_slash.utils import manage_components
+from discord_slash.model import ButtonStyle
+from ButtonPaginator import Paginator
 
 BASE_URL = 'https://www.dnd5eapi.co'
 
@@ -73,8 +77,11 @@ class Classes(commands.Cog):
         self.bot = bot
         self.session = aiohttp.ClientSession()
 
-    @commands.command(help='Fill in a 5e Character Sheet',
-                      aliases=['cs', 'sheet'])
+    @cog_ext.cog_slash(
+        name="charactersheet",
+        description="Generate a level 1 character sheet",
+        guild_ids=[788518409532997632]
+    )
     async def character(self, ctx):
         embed = discord.Embed(
             title='WELCOME!',
@@ -653,7 +660,35 @@ class Classes(commands.Cog):
         return out_file
 
     async def reaction(self, ctx, author, message, emojis, timeout):
-        return await asyncio.wait_for(self._reaction(ctx, author, message, emojis), timeout=timeout)
+        buttons = [
+            manage_components.create_button(
+                style=ButtonStyle.green,
+                label='✅',
+                custom_id="continue"
+            ),
+            manage_components.create_button(
+                style=ButtonStyle.green,
+                label='❌',
+                custom_id="cancel"
+            ),
+        ]
+        action_row = manage_components.create_actionrow(*buttons)
+        await message.edit(components=[action_row])
+
+        async def check(button_ctx):
+            if int(button_ctx.author.user.id) == int(ctx.author.user.id):
+                return True
+            await ctx.send("I wasn't asking you!", ephemeral=True)
+            return True
+
+        try:
+            button_ctx: ComponentContext = await self.bot.wait_for_component(
+                components=buttons, check=check, timeout=15
+            )
+        except asyncio.TimeoutError:
+            return await ctx.send("You didn't click :(")
+        return '✅'
+
 
     async def _reaction(self, ctx, author, message, emojis):
         for emoji in emojis:
