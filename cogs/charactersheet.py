@@ -1,3 +1,4 @@
+from multiprocessing.connection import wait
 import discord
 import aiohttp
 import pdfrw
@@ -76,6 +77,7 @@ class Classes(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.session = aiohttp.ClientSession()
+        self.userInputs = {}
 
     @cog_ext.cog_slash(
         name="charactersheet",
@@ -660,46 +662,49 @@ class Classes(commands.Cog):
         return out_file
 
     async def reaction(self, ctx, author, message, emojis, timeout):
+        self.userInputs[ctx.author.id] = "none"
+        print(self.userInputs[ctx.author.id])
+        
         buttons = [
-            manage_components.create_button(
-                style=ButtonStyle.green,
-                label='✅',
-                custom_id="continue"
-            ),
-            manage_components.create_button(
-                style=ButtonStyle.green,
-                label='❌',
-                custom_id="cancel"
-            ),
-        ]
+                    manage_components.create_button(
+                        style=ButtonStyle.green,
+                        label='agreed',
+                        custom_id="agreed"
+                    ),
+                    manage_components.create_button(
+                        style=ButtonStyle.green,
+                        label='❌',
+                        custom_id="cancel"
+                    ),
+                ]
+
         action_row = manage_components.create_actionrow(*buttons)
         await message.edit(components=[action_row])
-
-        async def check(button_ctx):
-            if int(button_ctx.author.user.id) == int(ctx.author.user.id):
-                return True
-            await ctx.send("I wasn't asking you!", ephemeral=True)
-            return True
-
-        try:
-            button_ctx: ComponentContext = await self.bot.wait_for_component(
-                components=buttons, check=check, timeout=15
-            )
-        except asyncio.TimeoutError:
-            return await ctx.send("You didn't click :(")
-        return '✅'
+        while(self.userInputs[ctx.author.id] == "none"):
+            """Wait here"""
+        
+        if(self.userInputs[ctx.author.id] == "y"):
+            return
+        else:
+            await ctx.send("Creation Cancelled")
 
 
-    async def _reaction(self, ctx, author, message, emojis):
-        for emoji in emojis:
-            await message.add_reaction(emoji)
-        while True:
-            reaction, user = await self.bot.wait_for('reaction_add')
-            if reaction.message.id == message.id and user.id == author.id:
-                message = await ctx.fetch_message(message.id)
-                for reaction in message.reactions:
-                    await reaction.clear()
-                return reaction.emoji
+
+    @commands.Cog.listener()
+    async def on_component(self, ctx):
+        if(self.userInputs[ctx.author.id] == 'none'):
+            self.userInputs[ctx.author.id] = "y"
+        else:
+            print("NO BUTTON FOR YOU")
+
+    @cog_ext.cog_component()
+    async def agreed(self, ctx):
+        if(self.userInputs[ctx.author.id] == 'none'):
+            self.userInputs[ctx.author.id] = "y"
+        else:
+            print("NO BUTTON FOR YOU")
+
+            
 
     async def message_check(self, message, user, timeout):
         return await asyncio.wait_for(self._message_check(message, user), timeout=timeout)
