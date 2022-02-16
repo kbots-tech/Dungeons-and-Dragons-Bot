@@ -5,7 +5,7 @@ import pdfrw
 import asyncio
 from discord.ext import commands
 import interactions
-from interactions import ButtonStyle, Button
+from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow
 from math import floor
 from ButtonPaginator import Paginator
 
@@ -87,7 +87,7 @@ class Classes(interactions.Extension):
     )
     async def charactersheet(self, ctx):
 
-        embed = discord.Embed(
+        embed = interactions.Embed(
             title='WELCOME!',
             description='Welcome to the dungeon master character creator,'
                   'this command will guide you through making a 1st'
@@ -98,23 +98,23 @@ class Classes(interactions.Extension):
             color=0xde2939,
         )
         buttons = [
-            interactions.Option.create_button(
-                style=ButtonStyle.green,
+            Button(
+                style=ButtonStyle.PRIMARY,
                 label='agreed',
                 custom_id="start"
             ),
-            interactions.Option.create_button(
-                style=ButtonStyle.green,
+            Button(
+                style=ButtonStyle.PRIMARY,
                 label='❌',
                 custom_id="cancel"
             ),
         ]
 
-        action_row = interactions.Option.create_actionrow(*buttons)
-        await ctx.send(embed=embed, components=[action_row], hidden=True)
+        action_row = interactions.ActionRow(components=buttons)
+        await ctx.send(embeds=[embed], components=[action_row], ephemeral =True)
 
-    @commands.Cog.listener()
-    async def start(self, ctx):
+    @interactions.extension_component
+    async def start(ctx: ComponentContext):
         self.fields[ctx.author.id] = ['NO']*334
 
         input = interactions.TextInput(style=interactions.TextStyleType.SHORT,

@@ -2,9 +2,9 @@ import discord
 import aiohttp
 import json
 
-from discord_slash.utils.manage_commands import create_option, create_choice
-from discord.ext import commands
-from discord_slash import cog_ext
+import interactions
+from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Option, Choice, OptionType
+
 from ButtonPaginator import Paginator
 from discord import Color
 from difflib import get_close_matches
@@ -13,23 +13,24 @@ from math import floor
 BASE_URL = 'https://www.dnd5eapi.co'
 
 
-class Monsters(commands.Cog):
+class Monsters(interactions.Extension):
 
     def __init__(self, bot):
         self.bot = bot
         self.session = aiohttp.ClientSession()
 
-    @cog_ext.cog_slash(
+    @interactions.extension_command(
         name="monster",
         description="Search through and get monster information",
         options=[
-            create_option(
+            Option(
                 name="name",
                 description="What monster would you like to search for?",
-                option_type=3,
+                type=OptionType.STRING,
                 required=False,
             ),
-        ]
+        ],
+        scope = 788518409532997632
     )
     async def _monster(self, ctx, name=None):
 
@@ -55,13 +56,16 @@ class Monsters(commands.Cog):
                     class_names += f'\n*{f["name"]}*'
 
             embed.add_field(name='__Item List:__', value=class_names)
-            await ctx.send(embed=embed)
+            await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
             return
         else:
             values = get_close_matches(name, url_list)
             if not values:
+
+                embed = discord.Embed(title=f'{name} not found', description='Please Try again.', color=Color.red())
+
                 await ctx.send(
-                    embed=discord.Embed(title=f'{name} not found', description='Please Try again.', color=Color.red()))
+                embeds = [interactions.Embed(**embed.to_dict())])
                 return
             name = values[0]
 
@@ -170,5 +174,5 @@ class Monsters(commands.Cog):
                       only=ctx.author)
         await e.start()
 
-def setup(bot):
-    bot.add_cog(Monsters(bot))
+def setup(client):
+    Monsters(client)

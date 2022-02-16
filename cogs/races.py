@@ -5,29 +5,29 @@ import json
 from asyncio import TimeoutError
 from discord import Color
 from difflib import get_close_matches
-from discord_slash.utils.manage_commands import create_option, create_choice
-from discord.ext import commands
-from discord_slash import cog_ext
+import interactions
+from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Option, Choice, OptionType
 from ButtonPaginator import Paginator
 
 BASE_URL = 'https://www.dnd5eapi.co'
 
 
-class races(commands.Cog):
+class Races(interactions.Extension):
 
     def __init__(self, bot):
         self.bot = bot
         self.session = aiohttp.ClientSession()
 
-    @cog_ext.cog_slash(
+    @interactions.extension_command(
         name="race",
         description="Search through and get race information",
         options=[
-            create_option(
+            Option(
                 name="name",
                 description="What race would you like to search for?",
-                option_type=3,
+                type=OptionType.STRING,
                 required=False,
+
             ),
         ]
     )
@@ -189,14 +189,14 @@ class races(commands.Cog):
 
                     embed.add_field(name='__Race List:__', value=race_names)
 
-                    await ctx.send(embed=embed)
+                    await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
                     return
 
             except IndexError:
-                await ctx.send(
-                    embed=discord.Embed(title=f'{name} not found', description='Please Try again.', color=Color.red()))
+                embed = discord.Embed(title=f'{name} not found', description='Please Try again.', color=Color.red())
+                await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
                 return
 
 
-def setup(bot):
-    bot.add_cog(races(bot))
+def setup(client):
+    Races(client)

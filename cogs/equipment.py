@@ -2,9 +2,9 @@ import discord
 import aiohttp
 import json
 
-from discord_slash.utils.manage_commands import create_option, create_choice
-from discord.ext import commands
-from discord_slash import cog_ext
+import interactions
+from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Option, Choice, OptionType
+
 from ButtonPaginator import Paginator
 from discord import Color
 from difflib import get_close_matches
@@ -12,7 +12,7 @@ from difflib import get_close_matches
 BASE_URL = 'https://www.dnd5eapi.co'
 
 
-class Equipment(commands.Cog):
+class Equipment(interactions.Extension):
 
     def __init__(self, bot):
         self.bot = bot
@@ -20,19 +20,20 @@ class Equipment(commands.Cog):
         with open("items.json") as file:
             self.items = json.load(file)
 
-    @cog_ext.cog_slash(
+    @interactions.extension_command(
         name="equipment",
-        description="Search through and get equipment information",
+        description="Search through and get equipment information, inludes armor tools and weapons",
         options=[
-            create_option(
-                name="name",
+            Option(
+                name="rename",
                 description="What equipment would you like to search for?",
-                option_type=3,
+                type=OptionType.STRING,
                 required=False,
             ),
         ]
     )
-    async def _equipment(self, ctx, rename=None):
+    async def _equipment(self, ctx, name=None):
+        rename = name
         try:
             async with self.session.get(f'{BASE_URL}/api/equipment') as resp:
                 data = json.loads(await resp.text())
@@ -63,7 +64,7 @@ class Equipment(commands.Cog):
                     embed.add_field(name="_ _" , value=field)
                     field = ""
 
-                await ctx.send(embed=embed)
+                await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
                 return
 
             async with self.session.get(f'{BASE_URL}{url_list[rename]}') as resp:
@@ -205,13 +206,25 @@ class Equipment(commands.Cog):
                         value=data['weight']
                     )
 
-            await ctx.send(embed=embed)
+            await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
         except IndexError:
-            await ctx.send(
-                embed=discord.Embed(title=f'{rename} not found', description='Please Try again.', color=Color.red()))
+            embed = discord.Embed(title=f'{rename} not found', description='Please Try again.', color=Color.red())
+            await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
 
-    @commands.command(aliases=['w','weapon'])
-    async def weapons(self, ctx, *, args=None):
+    @interactions.extension_command(
+        name="weapon",
+        description="Search through and get weapon information",
+        options=[
+            Option(
+                name="name",
+                description="What armor would you like to search for?",
+                type=OptionType.STRING,
+                required=False,
+            ),
+        ]
+    )
+    async def weapons(self, ctx, *, name=None):
+        args = name
         if not args:
             embed = discord.Embed(title='D&D Equipment', description=f"{len(self.items['Weapons']['items'])} total items.", color=Color.red())
             count=0
@@ -228,18 +241,29 @@ class Equipment(commands.Cog):
             embed.add_field(name="_ _", value=field)
             field = ""
 
-            await ctx.send(embed=embed)
+            await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
             return
         else:
             values = get_close_matches(args, [item['name'] for item in self.items['Weapons']['items']])
             if values:
-                await self.equipment(ctx, args=values[0])
+                await self._equipment(ctx, name=values[0])
             else:
-                await ctx.send(
-                    embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
-
-    @commands.command(aliases=['t', 'tool'])
-    async def tools(self, ctx, *, args=None):
+                embed = discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red())
+                await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
+    @interactions.extension_command(
+        name="tools",
+        description="Search through and get tools information",
+        options=[
+            Option(
+                name="name",
+                description="What tool would you like to search for?",
+                type=OptionType.STRING,
+                required=False,
+            ),
+        ]
+    )
+    async def tools(self, ctx, *, name=None):
+        args = name
         if not args:
             embed = discord.Embed(title='D&D Equipment',
                                   description=f"{len(self.items['Tools']['items'])} total items.", color=Color.red())
@@ -257,17 +281,30 @@ class Equipment(commands.Cog):
             embed.add_field(name="_ _", value=field)
             field = ""
 
-            await ctx.send(embed=embed)
+            await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
             return
         else:
             values = get_close_matches(args, [item['name'] for item in self.items['Tools']['items']])
             if values:
-                await self.equipment(ctx, args=values[0])
+                await self._equipment(ctx, name=values[0])
             else:
-                await ctx.send(embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
+                embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red())
+                await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
 
-    @commands.command(aliases=['a'])
-    async def armor(self, ctx, *, args=None):
+    @interactions.extension_command(
+        name="armor",
+        description="Search through and get armor information",
+        options=[
+            Option(
+                name="name",
+                description="What armor would you like to search for?",
+                type=OptionType.STRING,
+                required=False,
+            ),
+        ],scope = 788518409532997632
+    )
+    async def armor(self, ctx, name=None):
+        args=name
         if not args:
             embed = discord.Embed(title='D&D Equipment',
                                   description=f"{len(self.items['Armor']['items'])} total items.", color=Color.red())
@@ -285,15 +322,16 @@ class Equipment(commands.Cog):
             embed.add_field(name="_ _", value=field)
             field = ""
 
-            await ctx.send(embed=embed)
+            await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
             return
         else:
             values = get_close_matches(args, [item['name'] for item in self.items['Armor']['items']])
             if values:
-                await self.equipment(ctx, args=values[0])
+                await self._equipment(ctx, name=values[0])
             else:
-                await ctx.send(
-                    embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red()))
 
-def setup(bot):
-    bot.add_cog(Equipment(bot))
+                embed=discord.Embed(title=f'{args} not found', description='Please Try again.', color=Color.red())
+                await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
+
+def setup(client):
+    Equipment(client)

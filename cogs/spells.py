@@ -1,30 +1,28 @@
 import discord
 import aiohttp
 import json
-
 from discord import Color
 from difflib import get_close_matches
-from discord_slash.utils.manage_commands import create_option, create_choice
-from discord.ext import commands
-from discord_slash import cog_ext
+import interactions
+from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Option, Choice, OptionType
 
 BASE_URL = 'https://www.dnd5eapi.co'
 
 
-class spells(commands.Cog):
+class Spells(interactions.Extension):
 
     def __init__(self, bot):
         self.bot = bot
         self.session = aiohttp.ClientSession()
 
-    @cog_ext.cog_slash(
+    @interactions.extension_command(
         name="spell",
         description="Search through and get spell information",
         options=[
-            create_option(
+            Option(
                 name="name",
                 description="What spell would you like to search for?",
-                option_type=3,
+                type=OptionType.STRING,
                 required=False,
             ),
         ]
@@ -57,7 +55,7 @@ class spells(commands.Cog):
                     count += 1
 
                 embed.add_field(name='_ _', value=field)
-                await ctx.send(embed=embed)
+                await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
                 return
 
             async with self.session.get(f'{BASE_URL}{url_list[name]}') as resp:
@@ -110,14 +108,16 @@ class spells(commands.Cog):
                     value=data['higher_level'][0]
                 )
 
-            await ctx.send(embed=embed)
+            await ctx.send(embeds=[interactions.Embed(**embed.to_dict())])
 
         except TimeoutError:
             pass
         except IndexError:
+            discord.Embed(title=f'{name} not found', description='Please Try again.', color=Color.red())
             await ctx.send(
-                embed=discord.Embed(title=f'{name} not found', description='Please Try again.', color=Color.red()))
+                embeds=[interactions.Embed(**embed.to_dict())]
+            )
 
 
-def setup(bot):
-    bot.add_cog(spells(bot))
+def setup(client):
+    Spells(client)
