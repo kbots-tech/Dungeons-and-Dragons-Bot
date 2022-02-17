@@ -5,7 +5,7 @@ import pdfrw
 import asyncio
 from discord.ext import commands
 import interactions
-from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow
+from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Modal
 from math import floor
 from ButtonPaginator import Paginator
 
@@ -79,7 +79,6 @@ class Classes(interactions.Extension):
         self.session = aiohttp.ClientSession()
         self.fields = {}
 
-
     @interactions.extension_command(
         name="charactersheet",
         description="TESTING UPDATED CS COMMAND",
@@ -90,10 +89,10 @@ class Classes(interactions.Extension):
         embed = interactions.Embed(
             title='WELCOME!',
             description='Welcome to the dungeon master character creator,'
-                  'this command will guide you through making a 1st'
-                  'level D&D character, in the future you will be'
-                  'able to level up as well.'
-                  'The first step will be to select your class and race'
+                        'this command will guide you through making a 1st'
+                        'level D&D character, in the future you will be'
+                        'able to level up as well.'
+                        'The first step will be to select your class and race'
                         'when your ready react with ✅',
             color=0xde2939,
         )
@@ -111,29 +110,31 @@ class Classes(interactions.Extension):
         ]
 
         action_row = interactions.ActionRow(components=buttons)
-        await ctx.send(embeds=[embed], components=[action_row], ephemeral =True)
+        await ctx.send(embeds=[embed], components=[action_row], ephemeral=True)
 
-    @interactions.extension_component
-    async def start(ctx: ComponentContext):
-        self.fields[ctx.author.id] = ['NO']*334
+    @interactions.extension_component('start')
+    async def start(self, ctx):
+        self.fields[ctx.author.id] = ['NO'] * 334
 
         input = interactions.TextInput(style=interactions.TextStyleType.SHORT,
-                               label="Let's get straight to it: what's 1 + 1?",
-                               custom_id="text_input_response",
-                               min_length=1,
-                               max_length=3)
+                                       label="What is your characters name?",
+                                       custom_id="name_form",
+                                       min_length=1,
+                                       max_length=15)
 
-        modal = interactions.Modal(
+        modal = Modal(
             title="Application Form",
-            custom_id="mod_app_form",
+            custom_id="name_form",
             components=[input],
         )
 
         await ctx.popup(modal)
 
-    @commands.Cog.listener("mod_app_form")
-    async def modal_response(self, ctx, response: str):
-        character_name = await self.answer(ctx, "What is your characters name?", message=ctx, name="character")
+    @interactions.extension_modal('name_form')
+    async def name_form(self, ctx, response: str):
+        await ctx.send(response)
+        character_name = response
+        print(character_name)
         self.fields[ctx.author.id][0] = self.fields[ctx.author.id][17] = character_name
 
         # Class Selection
@@ -180,14 +181,16 @@ class Classes(interactions.Extension):
 
         while True:
             try:
-                self.fields[ctx.author.id][21] = int(await self.answer(ctx, "What is your strength roll?", message=ctx, timeout=500))
+                self.fields[ctx.author.id][21] = int(
+                    await self.answer(ctx, "What is your strength roll?", message=ctx, timeout=500))
                 break
             except ValueError:
                 pass
 
         while True:
             try:
-                self.fields[ctx.author.id][30] = int(await self.answer(ctx, "What is your dexterity roll?", message=ctx, timeout=500))
+                self.fields[ctx.author.id][30] = int(
+                    await self.answer(ctx, "What is your dexterity roll?", message=ctx, timeout=500))
                 break
             except ValueError:
                 pass
@@ -216,14 +219,16 @@ class Classes(interactions.Extension):
 
         while True:
             try:
-                self.fields[ctx.author.id][74] = int(await self.answer(ctx, "What is your wisdom roll?", message=message, timeout=500))
+                self.fields[ctx.author.id][74] = int(
+                    await self.answer(ctx, "What is your wisdom roll?", message=message, timeout=500))
                 break
             except ValueError:
                 pass
 
         while True:
             try:
-                self.fields[ctx.author.id][81] = int(await self.answer(ctx, "What is your charisma roll?", message=message, timeout=500))
+                self.fields[ctx.author.id][81] = int(
+                    await self.answer(ctx, "What is your charisma roll?", message=message, timeout=500))
                 break
             except ValueError:
                 pass
@@ -324,7 +329,7 @@ class Classes(interactions.Extension):
         for choice in prof_choices:
             desc = " Reply With the number matching your class choice\n"
             for count, option in enumerate(choice['from']):
-                desc += f"**{count+1}** {option['name']}\n"
+                desc += f"**{count + 1}** {option['name']}\n"
             count = 1
             while count <= int(choice['choose']):
                 selection = int(await self.answer(
@@ -332,7 +337,7 @@ class Classes(interactions.Extension):
                     f"Choose A Proficiency {count} of {choice['choose']}",
                     desc,
                     message,
-                    500))-1
+                    500)) - 1
                 if 'Skill' in choice['from'][selection]['name']:
                     while True:
                         try:
@@ -401,13 +406,13 @@ class Classes(interactions.Extension):
             for count, option in enumerate(stuff['from']):
 
                 if 'equipment' in option:
-                    desc += f"**{count+1}:** {option['equipment']['name']}\n"
+                    desc += f"**{count + 1}:** {option['equipment']['name']}\n"
                 elif 'equipment_option' in option:
-                    desc += f"**{count+1}:** {option['equipment_option']['choose']} from {option['equipment_option']['from']['equipment_category']['name']}\n"
+                    desc += f"**{count + 1}:** {option['equipment_option']['choose']} from {option['equipment_option']['from']['equipment_category']['name']}\n"
                 elif 'equipment_category' in option:
-                    desc += f"**{count+1}** {option['equipment_category']['name']}\n"
+                    desc += f"**{count + 1}** {option['equipment_category']['name']}\n"
                 else:
-                    package = f"**{count+1}**"
+                    package = f"**{count + 1}**"
                     for item in option:
                         if 'equipment' in option[item]:
                             q = option[item]['quantity']
@@ -420,7 +425,7 @@ class Classes(interactions.Extension):
 
             while True:
                 try:
-                    choice = int(await self.answer(ctx, "Select An Item", desc, ctx, 500))-1
+                    choice = int(await self.answer(ctx, "Select An Item", desc, ctx, 500)) - 1
                     break
                 except:
                     await ctx.send("Please reply with a number.", delete_after=2)
@@ -431,25 +436,31 @@ class Classes(interactions.Extension):
                     if self.fields[ctx.author.id][66] == "NO":
                         self.fields[ctx.author.id][66] = item['name']
                         if item['weapon_range'] == 'Melee':
-                            self.fields[ctx.author.id][67] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                            self.fields[ctx.author.id][67] = self.fields[ctx.author.id][27] + \
+                                                             self.fields[ctx.author.id][22]
                         elif item['weapon_range'] == 'Ranged':
-                            self.fields[ctx.author.id][67] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                            self.fields[ctx.author.id][67] = self.fields[ctx.author.id][33] + \
+                                                             self.fields[ctx.author.id][22]
                         damage = item['damage']
                         self.fields[ctx.author.id][68] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
                     elif self.fields[ctx.author.id][70] == "NO":
                         self.fields[ctx.author.id][70] = item['name']
                         if item['weapon_range'] == 'Melee':
-                            self.fields[ctx.author.id][71] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                            self.fields[ctx.author.id][71] = self.fields[ctx.author.id][27] + \
+                                                             self.fields[ctx.author.id][22]
                         elif item['weapon_range'] == 'Ranged':
-                            self.fields[ctx.author.id][71] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                            self.fields[ctx.author.id][71] = self.fields[ctx.author.id][33] + \
+                                                             self.fields[ctx.author.id][22]
                         damage = item['damage']
                         self.fields[ctx.author.id][72] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
                     elif self.fields[ctx.author.id][75] == "NO":
                         self.fields[ctx.author.id][75] = item['name']
                         if item['weapon_range'] == 'Melee':
-                            self.fields[ctx.author.id][76] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                            self.fields[ctx.author.id][76] = self.fields[ctx.author.id][27] + \
+                                                             self.fields[ctx.author.id][22]
                         elif item['weapon_range'] == 'Ranged':
-                            self.fields[ctx.author.id][76] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                            self.fields[ctx.author.id][76] = self.fields[ctx.author.id][33] + \
+                                                             self.fields[ctx.author.id][22]
                         damage = item['damage']
                         self.fields[ctx.author.id][77] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
 
@@ -468,10 +479,11 @@ class Classes(interactions.Extension):
                     info = await get_data(selection['equipment_option']['from']['equipment_category']['url'])
                     desc = ""
                     for count, item in enumerate(info['equipment']):
-                        desc += f"**{count+1}:** {item['name']}\n"
+                        desc += f"**{count + 1}:** {item['name']}\n"
                     while True:
                         try:
-                            choice = int(await self.answer(ctx, f'Select An Item {cycle+1} of {choices}', desc, ctx, 500))-1
+                            choice = int(
+                                await self.answer(ctx, f'Select An Item {cycle + 1} of {choices}', desc, ctx, 500)) - 1
                             break
                         except:
                             await ctx.send("Please Reply With a Valid Number", delete_after=5)
@@ -484,24 +496,30 @@ class Classes(interactions.Extension):
                         if self.fields[ctx.author.id][66] == "NO":
                             self.fields[ctx.author.id][66] = item['name']
                             if item['weapon_range'] == 'Melee':
-                                self.fields[ctx.author.id][67] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][67] = self.fields[ctx.author.id][27] + \
+                                                                 self.fields[ctx.author.id][22]
                             elif item['weapon_range'] == 'Ranged':
-                                self.fields[ctx.author.id][67] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][67] = self.fields[ctx.author.id][33] + \
+                                                                 self.fields[ctx.author.id][22]
                             self.fields[ctx.author.id][68] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
                         elif self.fields[ctx.author.id][70] == "NO":
                             self.fields[ctx.author.id][70] = item['name']
                             if item['weapon_range'] == 'Melee':
-                                self.fields[ctx.author.id][71] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][71] = self.fields[ctx.author.id][27] + \
+                                                                 self.fields[ctx.author.id][22]
                             elif item['weapon_range'] == 'Ranged':
-                                self.fields[ctx.author.id][71] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][71] = self.fields[ctx.author.id][33] + \
+                                                                 self.fields[ctx.author.id][22]
 
                             self.fields[ctx.author.id][72] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
                         elif self.fields[ctx.author.id][75] == "NO":
                             self.fields[ctx.author.id][75] = item['name']
                             if item['weapon_range'] == 'Melee':
-                                self.fields[ctx.author.id][76] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][76] = self.fields[ctx.author.id][27] + \
+                                                                 self.fields[ctx.author.id][22]
                             elif item['weapon_range'] == 'Ranged':
-                                self.fields[ctx.author.id][76] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][76] = self.fields[ctx.author.id][33] + \
+                                                                 self.fields[ctx.author.id][22]
                             self.fields[ctx.author.id][77] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
                         elif item['equipment_category']['name'] == 'Armor':
                             armor_class += item['armor_class']['base']
@@ -512,10 +530,10 @@ class Classes(interactions.Extension):
                 info = await get_data(selection['equipment_category']['url'])
                 desc = ""
                 for num, item in enumerate(info['equipment']):
-                    desc += f"**{num+1}:** {item['name']}\n"
+                    desc += f"**{num + 1}:** {item['name']}\n"
                 while True:
                     try:
-                        num = int(await self.answer(ctx, "Select an item", desc, ctx, 500))-1
+                        num = int(await self.answer(ctx, "Select an item", desc, ctx, 500)) - 1
                         break
                     except ValueError:
                         await ctx.send('Please give a valid number', delete_after=5)
@@ -527,12 +545,13 @@ class Classes(interactions.Extension):
                         item = await get_data(selection[thing]['equipment']['url'])
                     else:
                         q = 1
-                        items = await get_data(selection[thing]['equipment_option']['from']['equipment_category']['url'])
+                        items = await get_data(
+                            selection[thing]['equipment_option']['from']['equipment_category']['url'])
                         options = ""
                         for count, item in enumerate(items['equipment']):
-                            options += f"**{count+1}:** {item['name']}\n"
+                            options += f"**{count + 1}:** {item['name']}\n"
                         try:
-                            number = int(await self.answer(ctx, "Select An Item", options, ctx, 500))-1
+                            number = int(await self.answer(ctx, "Select An Item", options, ctx, 500)) - 1
                         except:
                             await ctx.send("Please reply with a valid number", delete_after=5)
                         item = await get_data(items['equipment'][number]['url'])
@@ -541,25 +560,31 @@ class Classes(interactions.Extension):
                         if self.fields[ctx.author.id][66] == "NO":
                             self.fields[ctx.author.id][66] = item['name']
                             if item['weapon_range'] == 'Melee':
-                                self.fields[ctx.author.id][67] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][67] = self.fields[ctx.author.id][27] + \
+                                                                 self.fields[ctx.author.id][22]
                             elif item['weapon_range'] == 'Ranged':
-                                self.fields[ctx.author.id][67] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][67] = self.fields[ctx.author.id][33] + \
+                                                                 self.fields[ctx.author.id][22]
                             damage = item['damage']
                             self.fields[ctx.author.id][68] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
                         elif self.fields[ctx.author.id][70] == "NO":
                             self.fields[ctx.author.id][70] = item['name']
                             if item['weapon_range'] == 'Melee':
-                                self.fields[ctx.author.id][71] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][71] = self.fields[ctx.author.id][27] + \
+                                                                 self.fields[ctx.author.id][22]
                             elif item['weapon_range'] == 'Ranged':
-                                self.fields[ctx.author.id][71] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][71] = self.fields[ctx.author.id][33] + \
+                                                                 self.fields[ctx.author.id][22]
                             damage = item['damage']
                             self.fields[ctx.author.id][72] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
                         elif self.fields[ctx.author.id][75] == "NO":
                             self.fields[ctx.author.id][75] = item['name']
                             if item['weapon_range'] == 'Melee':
-                                self.fields[ctx.author.id][76] = self.fields[ctx.author.id][27] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][76] = self.fields[ctx.author.id][27] + \
+                                                                 self.fields[ctx.author.id][22]
                             elif item['weapon_range'] == 'Ranged':
-                                self.fields[ctx.author.id][76] = self.fields[ctx.author.id][33] + self.fields[ctx.author.id][22]
+                                self.fields[ctx.author.id][76] = self.fields[ctx.author.id][33] + \
+                                                                 self.fields[ctx.author.id][22]
                             damage = item['damage']
                             self.fields[ctx.author.id][77] = f"{damage['damage_dice']} {damage['damage_type']['name']}"
 
@@ -592,10 +617,10 @@ class Classes(interactions.Extension):
             group = await get_data(option['url'])
             desc = ""
             for numero, name in enumerate(group['choice']['from']):
-                desc += f"**{numero+1}:** {name['name']}\n"
+                desc += f"**{numero + 1}:** {name['name']}\n"
             while True:
                 try:
-                    choice = int(await self.answer(ctx, "Select An Item", desc, ctx, 500))-1
+                    choice = int(await self.answer(ctx, "Select An Item", desc, ctx, 500)) - 1
                     break
                 except:
                     await ctx.send("Please reply with a number.", delete_after=2)
@@ -668,12 +693,14 @@ class Classes(interactions.Extension):
 
         output = await self.fill_pdf(fields=self.fields[ctx.author.id])
         await ctx.edit(embed=discord.Embed(title="Sending Character Sheet Now", color=0xde2939))
-        await ctx.send(embed=discord.Embed(title=f"Your Character Sheet for {self.fields[ctx.author.id][0]}", color=0xde2939), file=discord.File(output))
+        await ctx.send(
+            embed=discord.Embed(title=f"Your Character Sheet for {self.fields[ctx.author.id][0]}", color=0xde2939),
+            file=discord.File(output))
         await ctx.author.send(
             embed=discord.Embed(
                 title="Your Character Sheet",
                 description=f"And here's a backup for {self.fields[ctx.author.id][0]}",
-                color=0xde2939,),
+                color=0xde2939, ),
             file=discord.File(output))
 
     @staticmethod
@@ -698,47 +725,43 @@ class Classes(interactions.Extension):
     async def reaction(self, ctx, author, message, emojis, timeout):
         self.userInputs[ctx.author.id] = "none"
         print(self.userInputs[ctx.author.id])
-        
+
         buttons = [
-                    interactions.Option.create_button(
-                        style=ButtonStyle.green,
-                        label='agreed',
-                        custom_id="agreed"
-                    ),
-                    interactions.Option.create_button(
-                        style=ButtonStyle.green,
-                        label='❌',
-                        custom_id="cancel"
-                    ),
-                ]
+            interactions.Option.create_button(
+                style=ButtonStyle.green,
+                label='agreed',
+                custom_id="agreed"
+            ),
+            interactions.Option.create_button(
+                style=ButtonStyle.green,
+                label='❌',
+                custom_id="cancel"
+            ),
+        ]
 
         action_row = interactions.Option.create_actionrow(*buttons)
         await message.edit(components=[action_row])
-        while(self.userInputs[ctx.author.id] == "none"):
+        while (self.userInputs[ctx.author.id] == "none"):
             """Wait here"""
-        
-        if(self.userInputs[ctx.author.id] == "y"):
+
+        if (self.userInputs[ctx.author.id] == "y"):
             return
         else:
             await ctx.send("Creation Cancelled")
 
-
-
     @commands.Cog.listener()
     async def on_component(self, ctx):
-        if(self.userInputs[ctx.author.id] == 'none'):
+        if (self.userInputs[ctx.author.id] == 'none'):
             self.userInputs[ctx.author.id] = "y"
         else:
             print("NO BUTTON FOR YOU")
 
     @commands.Cog.listener()
     async def agreed(self, ctx):
-        if(self.userInputs[ctx.author.id] == 'none'):
+        if (self.userInputs[ctx.author.id] == 'none'):
             self.userInputs[ctx.author.id] = "y"
         else:
             print("NO BUTTON FOR YOU")
-
-            
 
     async def message_check(self, message, user, timeout):
         return await asyncio.wait_for(self._message_check(message, user), timeout=timeout)
