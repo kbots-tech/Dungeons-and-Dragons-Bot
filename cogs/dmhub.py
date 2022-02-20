@@ -5,7 +5,7 @@ import aiofiles
 
 import interactions
 from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Modal, Option, Choice
-from cogs.paginator import paginator
+from cogs.paginator import Paginator as paginator
 from discord import Color
 from difflib import get_close_matches
 
@@ -52,8 +52,7 @@ class DmHub(interactions.Extension):
         ]
     )
     async def _dmhub(self, ctx, query=None, gameid=None, charactername=None ):
-        async with self.session.get(BASE_URL.format(gameid)) as resp:
-            gamedata = json.loads(await resp.text())
+
 
 
 
@@ -136,7 +135,7 @@ class DmHub(interactions.Extension):
         page2 = discord.Embed(title="Test2")
 
         embeds = [page1, page2]
-        e = paginator(ctx, [interactions.Embed(**page1.to_dict()), interactions.Embed(**page2.to_dict())])
+        e = paginator(self.bot, ctx, [interactions.Embed(**page1.to_dict()), interactions.Embed(**page2.to_dict())], True )
         await e.start()
 def setup(client):
     DmHub(client)
