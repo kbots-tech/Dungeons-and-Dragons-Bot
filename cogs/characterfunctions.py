@@ -13,11 +13,13 @@ class CharacterData():
 
     def __init__(self, gameid, id):
         self.session = aiohttp.ClientSession()
-        self.fields = [""]*334
+        self.fields = ["NO"]*334
         self.gameid = gameid
         self.id = id
         self.proficiencies = []
         self.urlCalls = 0
+        self.bonuses = [2,2,2,2,3,3,3,3,4,4,4,
+                        4,5,5,5,5,6,6,6,6]
 
     async def fetchInfo(self, type=None, id=None):
         self.urlCalls += 1
@@ -42,27 +44,27 @@ class CharacterData():
         if 'cha' in character['baseAttributes']:
             basestats['cha'] = character['baseAttributes']['cha']
         else:
-            basestats['cha'] = 0
+            basestats['cha'] = 10
         if 'con' in character['baseAttributes']:
             basestats['con'] = character['baseAttributes']['con']
         else:
-            basestats['con'] = 0
+            basestats['con'] = 10
         if 'dex' in character['baseAttributes']:
             basestats['dex'] = character['baseAttributes']['dex']
         else:
-            basestats['dex'] = 0
+            basestats['dex'] = 10
         if 'int' in character['baseAttributes']:
             basestats['int'] = character['baseAttributes']['int']
         else:
-            basestats['int'] = 0
+            basestats['int'] = 10
         if 'str' in character['baseAttributes']:
             basestats['str'] = character['baseAttributes']['str']
         else:
-            basestats['str'] = 0
+            basestats['str'] = 10
         if 'wis' in character['baseAttributes']:
             basestats['wis'] = character['baseAttributes']['wis']
         else:
-            basestats['wis'] = 0
+            basestats['wis'] = 10
 
         data['basestats'] = basestats
         data['class'] = await self.getClass(character)
@@ -70,11 +72,17 @@ class CharacterData():
         data['background'] = await self.getBackground(character)
         data['inventory'] = await self.getInventory(character['inventory'])
 
-        data['stats'] = await self.calcStats(data['basestats'])
+        data['stats'] = await self.calcStats(data['basestats'], self.proficiencies, data)
         data['proficiencies'] = self.proficiencies
         data['lastupdate'] = "TODO"
+
+        for modifier in data['race']['features']:
+            if modifier['name'] == "Ability Score Increase":
+                for option in modifier['modifiers']:
+                    data['basestats'][option['attribute']] += option['value']
+
+
         print(self.proficiencies)
-        print(self.urlCalls)
         return data
 
     async def getClass(self, character):
@@ -186,6 +194,7 @@ class CharacterData():
 
     async def getBackground(self, character):
         data = await self.fetchInfo(type="background", id=character['backgroundid'])
+        background = {}
         features = []
         choices = character['levelChoices']
         for item in data['modifierInfo']['features']:
@@ -202,7 +211,10 @@ class CharacterData():
 
             else:
                 features.append(await self.featureBuilder(item))
-        return features
+        background['features'] = features
+        background['name'] = data['name']
+        background['description'] = data['description']
+        return background
 
     async def classChoices(self, choices, classData, level):
 
@@ -314,8 +326,13 @@ class CharacterData():
             }
 
             if info['type'] == 'Weapon':
+                print(info)
                 itemdata['damage'] = info['damage']
                 itemdata['damageType'] = info['damageType']
+                itemdata['category'] = info['equipmentCategory']
+            elif info['type'] == 'Armor':
+                itemdata['ac'] = info['armorClass']
+                itemdata['category'] = info['equipmentCategory']
 
             if info['type'] not in inventory:
                 inventory[info['type']] = []
@@ -324,17 +341,17 @@ class CharacterData():
         return inventory
 
     async def getField(self, choice):
-        if 'str' in choice.lower():
+        if 'strength' in choice.lower():
             return 60
-        elif 'dex' in choice.lower():
+        elif 'dexterity' in choice.lower():
             return 61
-        elif 'con' in choice.lower():
+        elif 'constitution' in choice.lower():
             return 62
-        elif 'int' in choice.lower():
+        elif 'intelligence' in choice.lower():
             return 63
-        elif 'wis' in choice.lower():
+        elif 'wisdom' in choice.lower():
             return 64
-        elif 'cha' in choice.lower():
+        elif 'charisma' in choice.lower():
             return 65
         elif 'acrobatics' in choice.lower():
             return 87
@@ -372,8 +389,10 @@ class CharacterData():
             return 103
         elif 'survival' in choice.lower():
             return 104
+        else:
+            return 0
 
-    async def calcStats(self, data):
+    async def calcStats(self, data, proficiencies, level):
 
         stats = {
             "strength": await self.calcValue(data['str']),
@@ -402,24 +421,147 @@ class CharacterData():
             "survival": await self.calcValue(data['wis']),
         }
 
+        levels = 0
+        for classes in level['class']:
+            levels += level['class'][classes]['level']
+
+        for proficiency in proficiencies:
+            for item in proficiency:
+                if item in stats:
+                    stats[item] += levels
 
         return stats
 
     async def calcValue(self, value):
-        return int(value/7)
+        return int((value-10)/2)
 
     async def closeSession(self):
         await self.session.close()
 
 
     async def fillFields(self, data):
-        return True
+        self.fields[0] = data['name']
+        levels = ""
+        hpMax = 0
+        for classes in data['class']:
+            levels += f"{data['class'][classes]['level']}, "
+            hpMax += data['class'][classes]['hitdie']*data['class'][classes]['level']
+        self.fields[14] = levels
+        self.fields[15] = data['background']['name']
+        self.fields[16] = "TODO"
+        self.fields[17] = data['name']
+        self.fields[18] = "TODO"
+        self.fields[21] = data['basestats']['str']
+        self.fields[22] = "TODO"
+        self.fields[23] = "TODO"
+        self.fields[24] = data['stats']['dexterity']
+        self.fields[25] = data['race']['speed']['walk']
+        self.fields[27] = data['stats']['strength']
+        self.fields[28] = hpMax
+        self.fields[29] = data['stats']['strength']
+        self.fields[30] = data['basestats']['dex']
+        self.fields[33] = data['stats']['dexterity']
+        self.fields[36] = data['basestats']['con']
+        self.fields[41] = data['stats']['constitution']
+        self.fields[47] = data['basestats']['int']
+        self.fields[48] = data['stats']['dexterity']
+        self.fields[49] = data['stats']['constitution']
+        self.fields[50] = data['stats']['intelligence']
+        self.fields[51] = data['stats']['wisdom']
+        self.fields[52] = data['stats']['charisma']
+        self.fields[53] = data['stats']['acrobatics']
+        self.fields[54] = data['stats']['animal Handling']
+        self.fields[55] = data['stats']['athletics']
+        self.fields[56] = data['stats']['deception']
+        self.fields[57] = data['stats']['history']
+        self.fields[58] = data['stats']['insight']
+        self.fields[59] = data['stats']['intimidation']
+        self.fields[69] = data['stats']['intelligence']
+        self.fields[73] = data['stats']['investigation']
+        self.fields[74] = data['basestats']['wis']
+        self.fields[77] = data['stats']['arcana']
+        self.fields[79] = data['stats']['perception']
+        self.fields[80] = data['stats']['wisdom']
+        self.fields[81] = data['basestats']['cha']
+        self.fields[82] = data['stats']['nature']
+        self.fields[83] = data['stats']['performance']
+        self.fields[84] = data['stats']['medicine']
+        self.fields[85] = data['stats']['religion']
+        self.fields[86] = data['stats']['stealth']
+        self.fields[105] = data['stats']['persuasion']
+        self.fields[106] = data['stats']['sleight of Hand']
+        self.fields[107] = data['stats']['charisma']
+        self.fields[108] = data['stats']['survival']
+        self.fields[110] = data['stats']['perception']
 
-    async def fill_pdf(fields, in_file=None, out_file=None):
+        languagelist = ["abyssal", "aquan", "auran", "celestial",
+                     "common", "deep speech", "draconic",
+                     "druidic", "dwarvish", "elvish",
+                     "giant", "gnomish", "goblin",
+                     "gnoll", "halfling", "ignan",
+                     "infernal", "orc", "sylvan",
+                     "terran", "undercommon"]
+        languages = ""
+        proficiencies = ""
+        for group in data['proficiencies']:
+            for item in group:
+                if item in languagelist:
+                    languages += f"{item}, "
+                else:
+                    proficiencies += f"{item}, "
+                    key = await self.getField(item)
+                    if key:
+                        self.fields[key] = "Yes"
+        self.fields[112] = f"Languages: {languages[:-2]}\nProficiencies: {proficiencies[:-2]}"
+
+        self.fields[111] = data['wallet']['Copper']
+        self.fields[113] = data['wallet']['Silver']
+        self.fields[115] = data['wallet']['Gold']
+        self.fields[114] = 0
+        self.fields[116] = 0
+        equipment = ""
+        armor = ""
+        weapons = ""
+
+        for items in data['inventory']:
+            if items == "Gear":
+                for item in data['inventory'][items]:
+                    equipment += f"{item['name']}, "
+            elif items == "Armor":
+                for item in data['inventory'][items]:
+                    armor += f"{item['name']}, "
+            elif items == "Shield":
+                for item in data['inventory'][items]:
+                    armor += f"{item['name']}, "
+            elif items == "Weapon":
+                for item in data['inventory'][items]:
+                    weapons += f"{item['name']}, "
+
+        self.fields[117] = f"Items: {equipment}\nWeapons: {weapons}\nArmor: {armor}"
+
+        weapons = data['inventory']['Weapon']
+
+        if len(weapons) >= 1:
+            self.fields[66] = weapons[0]['name']
+            self.fields[67] = "-"
+            self.fields[68] = f"{weapons[0]['damage']} {weapons[0]['damageType']}"
+        if len(weapons) >= 2:
+            self.fields[70] = weapons[1]['name']
+            self.fields[71] = "-"
+            self.fields[72] = f"{weapons[1]['damage']} {weapons[1]['damageType']}"
+        if len(weapons) >= 3:
+            self.fields[75] = weapons[2]['name']
+            self.fields[76] = "-"
+            self.fields[78] = f"{weapons[2]['damage']} {weapons[2]['damageType']}"
+
+
+        return await self.fill_pdf(self.fields)
+
+    async def fill_pdf(self, fields, in_file=None, out_file=None):
         if in_file is None:
-            in_file = pdfrw.PdfReader('./5eSheet.pdf')
+            in_file = pdfrw.PdfReader('5eSheet.pdf')
         if out_file is None:
-            out_file = f'./5eSheetOutput.pdf'
+            out_file = f'5eSheetOutput.pdf'
         in_file.Root.AcroForm.update({pdfrw.PdfName.NeedAppearances: True})
         for i in range(len(in_file.Root.AcroForm.Fields)):
             item = in_file.Root.AcroForm.Fields[i]
