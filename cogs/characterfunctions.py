@@ -11,13 +11,14 @@ import asyncio
 
 class CharacterData():
 
-    def __init__(self, gameid, id):
+    def __init__(self, gameid, id, player=None):
         self.session = aiohttp.ClientSession()
         self.fields = ["NO"]*334
         self.gameid = gameid
         self.id = id
         self.proficiencies = []
         self.urlCalls = 0
+        self.player = player
         self.bonuses = [2,2,2,2,3,3,3,3,4,4,4,
                         4,5,5,5,5,6,6,6,6]
 
@@ -72,17 +73,35 @@ class CharacterData():
         data['background'] = await self.getBackground(character)
         data['inventory'] = await self.getInventory(character['inventory'])
 
-        data['stats'] = await self.calcStats(data['basestats'], self.proficiencies, data)
+        self.proficiencies.append(character['innateProperties']['savingThrows'])
+
+
         data['proficiencies'] = self.proficiencies
         data['lastupdate'] = "TODO"
+        data['damage'] = character['damage_taken']
+
 
         for modifier in data['race']['features']:
             if modifier['name'] == "Ability Score Increase":
                 for option in modifier['modifiers']:
                     data['basestats'][option['attribute']] += option['value']
 
+        data['stats'] = await self.calcStats(data['basestats'], self.proficiencies, data)
+        data['player'] = self.player
+
+        data['ac'] = data['stats']['dexterity']
+        if "Armor" in data['inventory']:
+            ac = 0
+            for armor in data['inventory']['Armor']:
+                if ac < armor['ac']:
+                    ac = armor['ac']
+            data['ac'] += ac
+        else:
+            data['ac'] += 10
+
 
         print(self.proficiencies)
+        print(self.urlCalls)
         return data
 
     async def getClass(self, character):
@@ -126,63 +145,62 @@ class CharacterData():
                                 print(modifier)
                                 print("\n\n\n")
             elif 'modifiers' in feature:
-                    stat = {}
-                    skill = {}
-                    stat['modifiers'] = []
-                    stat['name'] = feature['name']
-                    for feat in feature['modifiers']:
-                        if feat['behavior'] == 'attribute':
-                            skill = {"name": feat['name'],
-                                     "attribute": feat['attribute'],
-                                     "value": feat['value'],
-                                     "type": "score"
-                                     }
-                        elif feat['behavior'] == 'proficiency':
-                            skill = {
-                                "name": feat['name'],
-                                "skills": feat['skills'],
-                                "desc": feat['description'],
-                                "type": "proficiency"
-                            }
-                            self.proficiencies.append(feat["skills"])
-                        elif feat['behavior'] == "conditionimmunity":
-                            skill = {
-                                "name": feat['name'],
-                                "description": feat['description'],
-                                "type": "immunity"
-                            }
-                        elif feat['behavior'] == "d20":
-                            skill = {
-                                "name": feat['name'],
-                                "description": feat['description'],
-                                "type": "advantage"
-                            }
-                        elif feat['behavior'] == "spell":
-                            spell = await self.fetchInfo(id=feat['spell'],type="spell")
+                stat = {}
+                stat['modifiers'] = []
+                stat['name'] = feature['name']
+                for feat in feature['modifiers']:
+                    if feat['behavior'] == 'attribute':
+                        skill = {"name": feat['name'],
+                                 "attribute": feat['attribute'],
+                                 "value": feat['value'],
+                                 "type": "score"
+                                 }
+                    elif feat['behavior'] == 'proficiency':
+                        skill = {
+                            "name": feat['name'],
+                            "skills": feat['skills'],
+                            "desc": feat['description'],
+                            "type": "proficiency"
+                        }
+                        self.proficiencies.append(feat["skills"])
+                    elif feat['behavior'] == "conditionimmunity":
+                        skill = {
+                            "name": feat['name'],
+                            "description": feat['description'],
+                            "type": "immunity"
+                        }
+                    elif feat['behavior'] == "d20":
+                        skill = {
+                            "name": feat['name'],
+                            "description": feat['description'],
+                            "type": "advantage"
+                        }
+                    elif feat['behavior'] == "spell":
+                        spell = await self.fetchInfo(id=feat['spell'],type="spell")
 
-                            skill = {
-                                "name": spell['name'],
-                                "description": spell['description'],
-                                "range": spell['range'],
-                                "school": spell['school'],
-                                "components": spell['components'],
-                                "castingTime": spell['castingTime'],
-                                "concentration": spell['concentration'],
-                                "type": "spell"
-                            }
-                        elif feat['behavior'] == "resistance":
-                            skill = {
-                                "name": feat['name'],
-                                "description": feat['description'],
-                                "type": "resistance"
-                            }
-                        else:
-                            print("FEAT IS:")
-                            print(feat)
-                            print("\n\n")
-                            skill = feat
-                        stat['modifiers'].append(skill)
-                    data['features'].append(stat)
+                        skill = {
+                            "name": spell['name'],
+                            "description": spell['description'],
+                            "range": spell['range'],
+                            "school": spell['school'],
+                            "components": spell['components'],
+                            "castingTime": spell['castingTime'],
+                            "concentration": spell['concentration'],
+                            "type": "spell"
+                        }
+                    elif feat['behavior'] == "resistance":
+                        skill = {
+                            "name": feat['name'],
+                            "description": feat['description'],
+                            "type": "resistance"
+                        }
+                    else:
+                        print("FEAT IS:")
+                        print(feat)
+                        print("\n\n")
+                        skill = feat
+                    stat['modifiers'].append(skill)
+                data['features'].append(stat)
             else:
                 data['features'].append(feature)
 
@@ -190,7 +208,15 @@ class CharacterData():
             data['darkvision'] = raceData['darkvision']
         else:
             data['darkvision'] = 0
-        return data
+
+        if not "subraceid" in character:
+            return data
+
+        else:
+            subrace = await self.fetchInfo(type="subrace", id=character['subraceid'])
+            for feature in subrace['modifierInfo']['features']:
+                data['features'].append(await self.featureBuilder(feature))
+            return data
 
     async def getBackground(self, character):
         data = await self.fetchInfo(type="background", id=character['backgroundid'])
@@ -208,6 +234,7 @@ class CharacterData():
                                 features.append(await self.featureBuilder(option))
                 except KeyError:
                     print("Feature not set")
+                print(item)
 
             else:
                 features.append(await self.featureBuilder(item))
@@ -267,7 +294,12 @@ class CharacterData():
                     "desc": feat['description'],
                     "type": "proficiency"
                 }
-                self.proficiencies.append(feat["skills"])
+
+                if "Weapon" in skill['name']:
+                    skill['skills'] = {}
+                    skill['skills'][skill['desc'][30:-3]] = skill['desc'][30:-3]
+                    skill['type'] = "weapon"
+                self.proficiencies.append(skill["skills"])
             elif feat['behavior'] == "conditionimmunity":
                 skill = {
                     "name": feat['name'],
@@ -326,7 +358,6 @@ class CharacterData():
             }
 
             if info['type'] == 'Weapon':
-                print(info)
                 itemdata['damage'] = info['damage']
                 itemdata['damageType'] = info['damageType']
                 itemdata['category'] = info['equipmentCategory']
@@ -427,8 +458,21 @@ class CharacterData():
 
         for proficiency in proficiencies:
             for item in proficiency:
+                if item == "str":
+                    item = "strength"
+                elif item == "dex":
+                    item = "dexterity"
+                elif item == "con":
+                    item = "constitution"
+                elif item == "int":
+                    item = "intelligence"
+                elif item == "wis":
+                    item = "wisdom"
+                elif item == "cha":
+                    item = "charisma"
+
                 if item in stats:
-                    stats[item] += levels
+                    stats[item] += self.bonuses[levels]
 
         return stats
 
@@ -442,27 +486,33 @@ class CharacterData():
     async def fillFields(self, data):
         self.fields[0] = data['name']
         levels = ""
+        level = 0
         hpMax = 0
+        hitDie = ""
         for classes in data['class']:
             levels += f"{data['class'][classes]['level']}, "
             hpMax += data['class'][classes]['hitdie']*data['class'][classes]['level']
+            hitDie += f"d{data['class'][classes]['hitdie']}"
+            level += data['class'][classes]['level']
         self.fields[14] = levels
         self.fields[15] = data['background']['name']
-        self.fields[16] = "TODO"
+        self.fields[16] = data['player']
         self.fields[17] = data['name']
-        self.fields[18] = "TODO"
         self.fields[21] = data['basestats']['str']
-        self.fields[22] = "TODO"
-        self.fields[23] = "TODO"
-        self.fields[24] = data['stats']['dexterity']
+        self.fields[22] = self.bonuses[level]
+        self.fields[23] = data['ac']
+        self.fields[24] = data['stats']['perception']
         self.fields[25] = data['race']['speed']['walk']
         self.fields[27] = data['stats']['strength']
         self.fields[28] = hpMax
         self.fields[29] = data['stats']['strength']
         self.fields[30] = data['basestats']['dex']
+        self.fields[31] = hpMax-data['damage']
         self.fields[33] = data['stats']['dexterity']
         self.fields[36] = data['basestats']['con']
+        self.fields[37] = level
         self.fields[41] = data['stats']['constitution']
+        self.fields[45] = hitDie
         self.fields[47] = data['basestats']['int']
         self.fields[48] = data['stats']['dexterity']
         self.fields[49] = data['stats']['constitution']
@@ -493,6 +543,17 @@ class CharacterData():
         self.fields[107] = data['stats']['charisma']
         self.fields[108] = data['stats']['survival']
         self.fields[110] = data['stats']['perception']
+        self.fields[333] = data['race']['name']
+        features = ""
+        for classes in data['class']:
+            for feature in data['class'][classes]['features']:
+                features += f"{feature['name']}\n"
+        for feature in data['race']['features']:
+            features += f"{feature['name']}\n"
+
+        self.fields[118] = features
+
+
 
         languagelist = ["abyssal", "aquan", "auran", "celestial",
                      "common", "deep speech", "draconic",
@@ -503,12 +564,25 @@ class CharacterData():
                      "terran", "undercommon"]
         languages = ""
         proficiencies = ""
+        weapons = ""
         for group in data['proficiencies']:
             for item in group:
                 if item in languagelist:
                     languages += f"{item}, "
                 else:
                     proficiencies += f"{item}, "
+                    if item == "str":
+                        item = "strength"
+                    elif item == "dex":
+                        item = "dexterity"
+                    elif item == "con":
+                        item = "constitution"
+                    elif item == "int":
+                        item = "intelligence"
+                    elif item == "wis":
+                        item = "wisdom"
+                    elif item == "cha":
+                        item = "charisma"
                     key = await self.getField(item)
                     if key:
                         self.fields[key] = "Yes"
@@ -537,21 +611,30 @@ class CharacterData():
                 for item in data['inventory'][items]:
                     weapons += f"{item['name']}, "
 
-        self.fields[117] = f"Items: {equipment}\nWeapons: {weapons}\nArmor: {armor}"
+        self.fields[117] = f"Items: {equipment[:-2]}\n\nWeapons: {weapons[:-2]}\n\nArmor: {armor[:-2]}"
 
         weapons = data['inventory']['Weapon']
 
         if len(weapons) >= 1:
             self.fields[66] = weapons[0]['name']
-            self.fields[67] = "-"
+            if "melee" in weapons[0]['category']:
+                self.fields[67] = data['stats']['strength']
+            elif "ranged" in weapons[0]['category']:
+                self.fields[67] = data['stats']['dexterity']
             self.fields[68] = f"{weapons[0]['damage']} {weapons[0]['damageType']}"
         if len(weapons) >= 2:
             self.fields[70] = weapons[1]['name']
-            self.fields[71] = "-"
+            if "melee" in weapons[1]['category']:
+                self.fields[71] = data['stats']['strength']
+            elif "ranged" in weapons[1]['category']:
+                self.fields[71] = data['stats']['dexterity']
             self.fields[72] = f"{weapons[1]['damage']} {weapons[1]['damageType']}"
         if len(weapons) >= 3:
             self.fields[75] = weapons[2]['name']
-            self.fields[76] = "-"
+            if "melee" in weapons[2]['category']:
+                self.fields[76] = data['stats']['strength']
+            elif "ranged" in weapons[2]['category']:
+                self.fields[76] = data['stats']['dexterity']
             self.fields[78] = f"{weapons[2]['damage']} {weapons[2]['damageType']}"
 
 
@@ -585,6 +668,7 @@ async def main():
     retrieval = CharacterData("LittleEpicTemperamentalElf", "0a45ceaa-3c01-4b70-b288-f6ebce564980")
     data = await retrieval.baseData()
     pdf = await retrieval.fillFields(data)
+
     await retrieval.closeSession()
     print(data)
 
