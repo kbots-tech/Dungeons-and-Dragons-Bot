@@ -13,7 +13,7 @@ class Paginator():
             Button(
                 style=ButtonStyle.PRIMARY,
                 label='<--',
-                custom_id=f"page_back"
+                custom_id=f"page_back{ctx.id}"
             ),
             Button(
                 style=ButtonStyle.PRIMARY,
@@ -24,7 +24,7 @@ class Paginator():
             Button(
                 style=ButtonStyle.PRIMARY,
                 label='-->',
-                custom_id=f"page_for"
+                custom_id=f"page_for{ctx.id}"
             ),
         ]
         self.page = 0;
@@ -44,20 +44,19 @@ class Paginator():
 
         async def check(button_ctx):
             print(f"PAIRS: {button_ctx.message.id} and {self.message.id}")
-            if int(button_ctx.author.user.id) == int(self.ctx.author.user.id) and \
-                    int(button_ctx.message.id) == int(self.message.id):
+            if int(button_ctx.author.user.id) == int(self.ctx.author.user.id):
                 return True
             return False
 
         while True:
             try:
                 button_ctx: ComponentContext = await self.client.wait_for_component(
-                    components=self.buttons, check=check, timeout=15
+                    components=[self.buttons], check=check, timeout=15
                 )
 
                 print(button_ctx)
 
-                if button_ctx.custom_id == "page_for":
+                if button_ctx.custom_id == f"page_for{self.ctx.id}":
                     if (self.page != self.max_page):
                         self.page += 1
                 else:
@@ -80,7 +79,7 @@ class Paginator():
                     Button(
                         style=ButtonStyle.PRIMARY,
                         label='<--',
-                        custom_id="page_back",
+                        custom_id=f"page_back{self.ctx.id}",
                         disabled=True
                     ),
                     Button(
@@ -92,7 +91,7 @@ class Paginator():
                     Button(
                         style=ButtonStyle.PRIMARY,
                         label='-->',
-                        custom_id=f"page_for",
+                        custom_id=f"page_for{self.ctx.id}",
                         disabled=True
                     ),
                 ]
