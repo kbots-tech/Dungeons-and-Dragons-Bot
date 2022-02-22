@@ -4,7 +4,7 @@ import json
 
 import interactions
 from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Option, Choice, OptionType
-from ButtonPaginator import Paginator
+from cogs.paginator import Paginator
 from discord import Color
 from difflib import get_close_matches
 
@@ -22,7 +22,7 @@ class Classes(interactions.Extension):
         description="Search through and get class information",
         options=[
             Option(
-                name="name",
+                name="clas",
                 description="What class would you like to search for?",
                 type=3,
                 required=False,
@@ -33,9 +33,11 @@ class Classes(interactions.Extension):
                 type=5,
                 required=False,
             ),
-        ]
+        ],
+        scope=788518409532997632
     )
-    async def _classes(self, ctx, name=None, level=None):
+    async def _classes(self, ctx, clas=None, level=None):
+        name=clas
 
         page = 0
         try:

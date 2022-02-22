@@ -2,12 +2,12 @@ import discord
 import aiohttp
 import json
 
-from asyncio import TimeoutError
+
 from discord import Color
 from difflib import get_close_matches
 import interactions
 from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Option, Choice, OptionType
-from ButtonPaginator import Paginator
+from cogs.paginator import Paginator
 
 BASE_URL = 'https://www.dnd5eapi.co'
 
@@ -23,7 +23,7 @@ class Races(interactions.Extension):
         description="Search through and get race information",
         options=[
             Option(
-                name="name",
+                name="race",
                 description="What race would you like to search for?",
                 type=OptionType.STRING,
                 required=False,
@@ -31,7 +31,8 @@ class Races(interactions.Extension):
             ),
         ]
     )
-    async def _race(self, ctx, name= None):
+    async def _race(self, ctx, race= None):
+        name = race
         while True:
             try:
                 async with self.session.get(f'{BASE_URL}/api/races') as resp:

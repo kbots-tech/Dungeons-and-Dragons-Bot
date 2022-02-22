@@ -52,9 +52,7 @@ class DmHub(interactions.Extension):
         ]
     )
     async def _dmhub(self, ctx, query=None, gameid=None, charactername=None ):
-
-
-
+        gamedata =
 
         if(query == "game"):
             embed = discord.Embed(title=gamedata['description'], description=gamedata['descriptionDetails'])

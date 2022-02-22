@@ -5,7 +5,7 @@ import json
 import interactions
 from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Option, Choice, OptionType
 
-from ButtonPaginator import Paginator
+from cogs.paginator import Paginator
 from discord import Color
 from difflib import get_close_matches
 from math import floor
@@ -24,15 +24,16 @@ class Monsters(interactions.Extension):
         description="Search through and get monster information",
         options=[
             Option(
-                name="name",
+                name="creature",
                 description="What monster would you like to search for?",
                 type=OptionType.STRING,
                 required=False,
             ),
         ],
-        scope = 788518409532997632
+        scope=788518409532997632
     )
-    async def _monster(self, ctx, name=None):
+    async def _monster(self, ctx, creature=None):
+        name = creature
 
         async with self.session.get(f'{BASE_URL}/api/monsters') as resp:
             data = json.loads(await resp.text())

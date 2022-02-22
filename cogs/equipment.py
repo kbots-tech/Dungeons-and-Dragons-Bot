@@ -5,7 +5,6 @@ import json
 import interactions
 from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRow, Option, Choice, OptionType
 
-from ButtonPaginator import Paginator
 from discord import Color
 from difflib import get_close_matches
 

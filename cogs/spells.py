@@ -25,7 +25,8 @@ class Spells(interactions.Extension):
                 type=OptionType.STRING,
                 required=False,
             ),
-        ]
+        ],scope=788518409532997632
+
     )
     async def _spell(self, ctx, name=None):
         try:

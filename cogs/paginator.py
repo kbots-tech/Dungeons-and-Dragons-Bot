@@ -13,7 +13,7 @@ class Paginator():
             Button(
                 style=ButtonStyle.PRIMARY,
                 label='<--',
-                custom_id="page_back"
+                custom_id=f"page_back"
             ),
             Button(
                 style=ButtonStyle.PRIMARY,
@@ -36,20 +36,26 @@ class Paginator():
         self.message = ""
 
     async def start(self):
-        self.message = await self.ctx.send(embeds=self.pages[0], components=[self.action_row])
+        if not self.message:
+            self.message = await self.ctx.send(embeds=[interactions.Embed(**self.pages[0].to_dict())],
+                                               components=[self.action_row])
+        else:
+            await self.message.edit(embeds=[interactions.Embed(**self.pages[self.page].to_dict())])
+
+        async def check(button_ctx):
+            print(f"PAIRS: {button_ctx.message.id} and {self.message.id}")
+            if int(button_ctx.author.user.id) == int(self.ctx.author.user.id) and \
+                    int(button_ctx.message.id) == int(self.message.id):
+                return True
+            return False
+
         while True:
-
-
-            async def check(button_ctx):
-                if int(button_ctx.author.user.id) == int(self.ctx.author.user.id):
-                    return True
-                await self.ctx.send("I wasn't asking you!", ephemeral=True)
-                return False
-
             try:
                 button_ctx: ComponentContext = await self.client.wait_for_component(
                     components=self.buttons, check=check, timeout=15
                 )
+
+                print(button_ctx)
 
                 if button_ctx.custom_id == "page_for":
                     if (self.page != self.max_page):
@@ -58,14 +64,37 @@ class Paginator():
                     if (self.page != 0):
                         self.page -= 1
 
-                self.buttons[1].label = f"Page {self.page+1} of {len(self.pages)}"
+                self.buttons[1] = Button(
+                    style=ButtonStyle.PRIMARY,
+                    label=f"Page {self.page+1} of {len(self.pages)}",
+                    custom_id="page_count",
+                    disabled=True
+                )
                 self.action_row = ActionRow(components=self.buttons)
+                await button_ctx.edit(embeds=[interactions.Embed(**self.pages[self.page].to_dict())],
+                                      components=self.action_row)
 
-                await self.message.edit(embeds=self.pages[self.page])
-                await self.message.edit(components=[self.action_row])
-                await self.ctx.defer(ephemeral=True)
             except asyncio.TimeoutError:
-                for button in self.buttons:
-                    button.disabled = True
+
+                self.buttons = [
+                    Button(
+                        style=ButtonStyle.PRIMARY,
+                        label='<--',
+                        custom_id="page_back",
+                        disabled=True
+                    ),
+                    Button(
+                        style=ButtonStyle.PRIMARY,
+                        label=f"Page 1 of {len(self.pages)}",
+                        custom_id="page_count",
+                        disabled=True
+                    ),
+                    Button(
+                        style=ButtonStyle.PRIMARY,
+                        label='-->',
+                        custom_id=f"page_for",
+                        disabled=True
+                    ),
+                ]
                 self.action_row = ActionRow(components=self.buttons)
-                return await self.message.edit(components=[self.action_row])
+                return await self.ctx.edit(embeds=[interactions.Embed(**self.pages[self.page].to_dict())], components=self.action_row)
