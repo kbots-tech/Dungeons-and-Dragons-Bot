@@ -9,7 +9,7 @@ import pdfrw
 
 import asyncio
 
-class CharacterData():
+class CharacterData:
 
     def __init__(self, gameid, id, player=None):
         self.session = aiohttp.ClientSession()
@@ -673,4 +673,3 @@ async def main():
     print(data)
 
 
-newfeature = asyncio.run(main())

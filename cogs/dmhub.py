@@ -8,6 +8,7 @@ from interactions import Button, ButtonStyle, SelectMenu, SelectOption, ActionRo
 from cogs.paginator import Paginator as paginator
 from discord import Color
 from difflib import get_close_matches
+from cogs.characterfunctions import CharacterData
 
 BASE_URL = 'https://us-central1-dmtool-cad62.cloudfunctions.net/query?gameid={0}'
 QUERY_URL = 'https://us-central1-dmtool-cad62.cloudfunctions.net/query?gameid={0}&type={1}&id={2}'
@@ -52,7 +53,8 @@ class DmHub(interactions.Extension):
         ]
     )
     async def _dmhub(self, ctx, query=None, gameid=None, charactername=None ):
-        gamedata =
+        async with self.session.get(BASE_URL.format(gameid)) as resp:
+            gamedata = json.loads(await resp.text())
 
         if(query == "game"):
             embed = discord.Embed(title=gamedata['description'], description=gamedata['descriptionDetails'])
@@ -66,7 +68,7 @@ class DmHub(interactions.Extension):
                     characters += f"*NO NAME: * {character['summaryDescription']}\n"
             embed.add_field(name="Characters", value=characters, inline=False)
             embed.set_image(url="attachment://file.jpg")
-            await ctx.send(embed=embed, file=file)
+            await ctx.send(embeds=[interactions.Embed(**embed.to_dict())], file=file)
 
         elif(query == "character"):
             await self.character(ctx, gamedata, charactername, gameid)

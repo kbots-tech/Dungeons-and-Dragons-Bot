@@ -31,7 +31,7 @@ class Races(interactions.Extension):
             ),
         ]
     )
-    async def _race(self, ctx, race= None):
+    async def _race(self, ctx, race=None):
         name = race
         while True:
             try:
