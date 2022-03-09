@@ -27,7 +27,7 @@ class Paginator():
                 custom_id=f"page_for{ctx.id}"
             ),
         ]
-        self.page = 0;
+        self.page = 0
         if embeds != None:
             self.max_page = len(embeds) - 1
         else:
