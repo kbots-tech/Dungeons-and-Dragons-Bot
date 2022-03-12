@@ -1,13 +1,15 @@
 import interactions
+from interactions.ext import wait_for
 
 extensions = [
-	'cogs.spells', 'cogs.races', 'cogs.monsters','cogs.equipment', 'cogs.classes'
+	'cogs.classes', 'cogs.dmhub', 'cogs.equipment', 'cogs.monsters', 'cogs.races', 'cogs.spells'
 ]
 
 bot = interactions.Client(
-	token="TOKEN HERE",
-	sync_command=True
+	token="NzU4NDgwNjA3NjM4MDYxMDU2.X2vkHA.VRovcXFHJE5RtsEbG6VG9XkX-kA",
+	sync_command=True, sync_on_reload=True
 )
+wait_for.setup(bot, add_method=True)
 
 bot.author_id = 480055359462178826
 

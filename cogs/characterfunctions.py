@@ -1,5 +1,3 @@
-from datetime import datetime
-
 BASE_URL = 'https://us-central1-dmtool-cad62.cloudfunctions.net/query?gameid={0}'
 QUERY_URL = 'https://us-central1-dmtool-cad62.cloudfunctions.net/query?gameid={0}&type={1}&id={2}'
 
@@ -7,7 +5,7 @@ import aiohttp
 import json
 import pdfrw
 
-import asyncio
+from github import Github
 
 class CharacterData:
 
@@ -21,6 +19,7 @@ class CharacterData:
         self.player = player
         self.bonuses = [2,2,2,2,3,3,3,3,4,4,4,
                         4,5,5,5,5,6,6,6,6]
+        self.github = Github("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")
 
     async def fetchInfo(self, type=None, id=None):
         self.urlCalls += 1
@@ -127,11 +126,13 @@ class CharacterData:
         try:
             data['size'] = raceData['size']
         except KeyError:
-            data['size'] = "n/a"
+            data['size'] = "0"
         try:
             data['speed'] = raceData['moveSpeeds']
         except KeyError:
-            data['speed'] = "n/a"
+            data['speed'] = {
+                "walk":0
+            }
         data['features'] = []
 
         for feature in raceData['modifierInfo']['features']:
@@ -613,7 +614,10 @@ class CharacterData:
 
         self.fields[117] = f"Items: {equipment[:-2]}\n\nWeapons: {weapons[:-2]}\n\nArmor: {armor[:-2]}"
 
-        weapons = data['inventory']['Weapon']
+        if "Weapon" in data['inventory']:
+            weapons = data['inventory']['Weapon']
+        else:
+            weapons = []
 
         if len(weapons) >= 1:
             self.fields[66] = weapons[0]['name']
@@ -656,7 +660,33 @@ class CharacterData:
                     item.V = str(fields[i])
         else:
             pdfrw.PdfWriter().write(out_file, in_file)
-        return out_file
+
+            repo = self.github.get_user().get_repo("Dungeons-and-Dragons-PDFs")
+            all_files = []
+            contents = repo.get_contents("")
+            while contents:
+                file_content = contents.pop(0)
+                if file_content.type == "dir":
+                    contents.extend(repo.get_contents(file_content.path))
+                else:
+                    file = file_content
+                    all_files.append(str(file).replace('ContentFile(path="', '').replace('")', ''))
+
+            with open('5eSheetOutput.pdf', 'rb') as file:
+                content = file.read()
+
+
+            git_file =f'{fields[0]}.pdf'
+            if git_file in all_files:
+                contents = repo.get_contents(git_file)
+                file_info = repo.update_file(contents.path, "committing files", content, contents.sha, branch="main")
+                print(git_file + ' UPDATED')
+            else:
+                file_info = repo.create_file(git_file, "committing files", content, branch="main")
+            print(file_info)
+
+        return f"https://github.com/mcurranseijo/Dungeons-and-Dragons-PDFs/raw/main/{fields[0]}.pdf"
+
 
 
 
@@ -671,5 +701,4 @@ async def main():
 
     await retrieval.closeSession()
     print(data)
-
-
+    print(pdf)

@@ -96,4 +96,5 @@ class Paginator():
                     ),
                 ]
                 self.action_row = ActionRow(components=self.buttons)
-                return await self.ctx.edit(embeds=[interactions.Embed(**self.pages[self.page].to_dict())], components=self.action_row)
+                await self.ctx.edit(embeds=[interactions.Embed(**self.pages[self.page].to_dict())],
+                                    components=self.action_row)
